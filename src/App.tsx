@@ -385,7 +385,7 @@ function App() {
             <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-accent">
               <h3 className="text-xl text-primary mb-2 font-semibold">Licenciatura en Economía</h3>
               <p className="text-accent font-semibold mb-1">Universidad Técnica Estatal de Quevedo</p>
-              <p className="text-gray-500 text-sm">2014 - 2018</p>
+              <p className="text-gray-500 text-sm">2019 - 2025</p>
             </div>
           </div>
         </div>
