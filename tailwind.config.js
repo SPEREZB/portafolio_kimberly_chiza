@@ -7,19 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          light: '#2d5a87',
-          DEFAULT: '#1e3a5f',
-          dark: '#0f2840',
-        },
+        primary: '#1a202c',
+        secondary: '#f7fafc',
         accent: {
-          light: '#f5af19',
-          DEFAULT: '#f12711',
-          dark: '#d41e0a',
+          light: '#f6ad55',
+          DEFAULT: '#dd6b20',
+          dark: '#c05621',
         },
       },
       fontFamily: {
-        sans: ['Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
     },
   },

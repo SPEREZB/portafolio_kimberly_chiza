@@ -379,7 +379,7 @@ function App() {
               </div>
               <div className="mb-6">
                 <label htmlFor="message" className="block mb-2 text-primary font-semibold">Mensaje</label>
-                <textarea id="message" name="message" rows="5" required className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-light transition-colors resize-y"></textarea>
+                <textarea id="message" name="message" rows={5} required className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-light transition-colors resize-y"></textarea>
               </div>
               <button type="submit" className="w-full py-4 rounded-full bg-gradient-to-r from-accent-light to-accent text-white font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all">Enviar Mensaje</button>
             </form>
