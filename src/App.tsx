@@ -36,18 +36,18 @@ function App() {
   }, []);
   return (
     <>
-      <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 py-4 shadow-sm border-b border-gray-100">
+      <nav className="bg-gradient-to-r from-accent to-accent-light sticky top-0 z-50 py-4 shadow-sm">
         <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-          <div className="text-2xl font-bold text-primary">Kimberly Chiza</div>
+          <div className="text-2xl font-bold text-white">Kimberly Chiza</div>
           <ul className="flex gap-6 m-0 p-0 list-none">
-            <li><a href="#inicio" className="text-gray-700 font-medium hover:text-accent transition-colors no-underline flex items-center gap-2"><i className="fas fa-home text-sm"></i> Inicio</a></li>
-            <li><a href="#sobre-mi" className="text-gray-700 font-medium hover:text-accent transition-colors no-underline flex items-center gap-2"><i className="fas fa-user text-sm"></i> Sobre Mí</a></li>
-            <li><a href="#experiencia" className="text-gray-700 font-medium hover:text-accent transition-colors no-underline flex items-center gap-2"><i className="fas fa-briefcase text-sm"></i> Experiencia</a></li>
-            <li><a href="#empresas" className="text-gray-700 font-medium hover:text-accent transition-colors no-underline flex items-center gap-2"><i className="fas fa-building text-sm"></i> Empresas</a></li>
-            <li><a href="#tecnologias" className="text-gray-700 font-medium hover:text-accent transition-colors no-underline flex items-center gap-2"><i className="fas fa-tools text-sm"></i> Herramientas</a></li>
-            <li><a href="#funciones" className="text-gray-700 font-medium hover:text-accent transition-colors no-underline flex items-center gap-2"><i className="fas fa-tasks text-sm"></i> Funciones</a></li>
-            <li><a href="#servicios" className="text-gray-700 font-medium hover:text-accent transition-colors no-underline flex items-center gap-2"><i className="fas fa-cogs text-sm"></i> Servicios</a></li>
-            <li><a href="#contacto" className="text-gray-700 font-medium hover:text-accent transition-colors no-underline flex items-center gap-2"><i className="fas fa-envelope text-sm"></i> Contacto</a></li>
+            <li><a href="#inicio" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-home text-sm"></i> Inicio</a></li>
+            <li><a href="#sobre-mi" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-user text-sm"></i> Sobre Mí</a></li>
+            <li><a href="#experiencia" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-briefcase text-sm"></i> Experiencia</a></li>
+            <li><a href="#empresas" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-building text-sm"></i> Empresas</a></li>
+            <li><a href="#tecnologias" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-tools text-sm"></i> Herramientas</a></li>
+            <li><a href="#funciones" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-tasks text-sm"></i> Funciones</a></li>
+            <li><a href="#servicios" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-cogs text-sm"></i> Servicios</a></li>
+            <li><a href="#contacto" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-envelope text-sm"></i> Contacto</a></li>
           </ul>
         </div>
       </nav>
@@ -61,14 +61,14 @@ function App() {
               </div>
             </div>
           </div>
-          <h1 className="text-6xl font-bold mb-4 text-primary tracking-tight">Kimberly Chiza</h1>
+          <h1 className="text-6xl font-bold mb-4 text-accent tracking-tight">Kimberly Chiza</h1>
           <h2 className="text-2xl font-medium mb-6 text-gray-600">Economista Profesional</h2>
           <p className="text-xl mb-12 text-gray-500 leading-relaxed max-w-2xl mx-auto font-light">
             Especialista en análisis económico, consultoría financiera y planificación estratégica
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="#contacto" className="px-10 py-4 rounded-full bg-primary text-white font-semibold hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Contáctame</a>
-            <a href="#servicios" className="px-10 py-4 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Mis Servicios</a>
+            <a href="#contacto" className="px-10 py-4 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Contáctame</a>
+            <a href="#servicios" className="px-10 py-4 rounded-full border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Mis Servicios</a>
           </div>
         </div>
       </section>
@@ -89,12 +89,12 @@ function App() {
             <div className="mt-8">
               <h3 className="text-2xl text-primary mb-4">Habilidades</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-primary-light text-white font-medium">Análisis de Datos</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-primary-light text-white font-medium">Economía Financiera</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-primary-light text-white font-medium">Estadística</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-primary-light text-white font-medium">Excel Avanzado</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-primary-light text-white font-medium">Modelado Económico</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-primary-light text-white font-medium">Consultoría</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Análisis de Datos</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Economía Financiera</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Estadística</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Excel Avanzado</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Modelado Económico</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Consultoría</span>
               </div>
             </div>
           </div>
@@ -412,13 +412,13 @@ function App() {
               </div>
             </div>
             <div className="flex gap-4 justify-center">
-              <a href="https://www.linkedin.com/in/kimberlychiza/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-primary font-semibold border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all no-underline">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/kimberlychiza/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-accent font-semibold border-2 border-accent rounded-full hover:bg-accent hover:text-white transition-all no-underline">LinkedIn</a>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="bg-primary text-white text-center py-8">
+      <footer className="bg-gradient-to-r from-accent to-accent-light text-white text-center py-8">
         <div className="max-w-7xl mx-auto">
           <p className="m-0">&copy; 2026 Kimberly Chiza. Todos los derechos reservados.</p>
         </div>
