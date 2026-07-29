@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import paisasImg from './assets/paisas.jpg';
 import municipioImg from './assets/municipio.jpg';
 import casaJudicialImg from './assets/casa_judicial.jpg';
@@ -11,6 +12,28 @@ import fullhogarImg from './assets/fullhogar.jpg';
 import hubspotImg from './assets/hubspot.png';
 
 function App() {
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('.fade-in-section, .fade-in-left, .fade-in-right, .fade-in-up');
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
+    };
+  }, []);
   return (
     <>
       <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 py-4 shadow-sm border-b border-gray-100">
@@ -29,7 +52,7 @@ function App() {
         </div>
       </nav>
 
-      <section id="inicio" className="bg-gradient-to-br from-slate-50 to-slate-100 min-h-[85vh] flex items-center justify-center py-16 px-8">
+      <section id="inicio" className="bg-gradient-to-br from-slate-50 to-slate-100 min-h-[85vh] flex items-center justify-center py-16 px-8 fade-in-section">
         <div className="max-w-4xl text-center">
           <div className="mb-10">
             <div className="w-52 h-52 mx-auto rounded-full bg-gradient-to-br from-accent to-orange-400 p-1.5 shadow-xl">
@@ -50,7 +73,7 @@ function App() {
         </div>
       </section>
 
-      <section id="sobre-mi" className="py-24 px-8">
+      <section id="sobre-mi" className="py-24 px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Sobre Mí</h2>
           <div className="max-w-3xl mx-auto">
@@ -78,7 +101,7 @@ function App() {
         </div>
       </section>
 
-      <section id="experiencia" className="py-24 px-8">
+      <section id="experiencia" className="py-24 px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Experiencia</h2>
           <div className="max-w-4xl mx-auto">
@@ -139,11 +162,11 @@ function App() {
         </div>
       </section>
 
-      <section id="empresas" className="py-24 px-8 bg-gray-50">
+      <section id="empresas" className="py-24 px-8 bg-gray-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Empresas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <a href="https://lospaisas.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+            <a href="https://lospaisas.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up">
               <div className="h-56 overflow-hidden relative">
                 <img src={paisasImg} alt="Los Paisas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -157,7 +180,7 @@ function App() {
                 <p className="text-gray-500 text-sm">Análisis económico, gestión financiera y evaluación de indicadores de desempeño empresarial.</p>
               </div>
             </a>
-            <a href="https://fullhogar.com.co/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+            <a href="https://fullhogar.com.co/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-1">
               <div className="h-56 overflow-hidden relative">
                 <img src={fullhogarImg} alt="Fullhogar" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -171,7 +194,7 @@ function App() {
                 <p className="text-gray-500 text-sm">Administración de relaciones comerciales, análisis de mercado y estrategias de ventas.</p>
               </div>
             </a>
-            <a href="https://www.cooperativacredifacil.fin.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+            <a href="https://www.cooperativacredifacil.fin.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-2">
               <div className="h-56 overflow-hidden relative">
                 <img src={cfacilImg} alt="Credifacil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -185,7 +208,7 @@ function App() {
                 <p className="text-gray-500 text-sm">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
               </div>
             </a>
-            <a href="https://quevedo.gob.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+            <a href="https://quevedo.gob.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-3">
               <div className="h-56 overflow-hidden relative">
                 <img src={municipioImg} alt="Municipio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -199,7 +222,7 @@ function App() {
                 <p className="text-gray-500 text-sm">Apoyo en gestión pública, análisis de políticas locales y administración de recursos municipales.</p>
               </div>
             </a>
-            <a href="http://acotecnic.com/portfolio/casa-judicial-quevedo/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+            <a href="http://acotecnic.com/portfolio/casa-judicial-quevedo/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-4">
               <div className="h-56 overflow-hidden relative">
                 <img src={casaJudicialImg} alt="Casa Judicial" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -217,7 +240,7 @@ function App() {
         </div>
       </section>
 
-      <section id="tecnologias" className="py-24 px-8">
+      <section id="tecnologias" className="py-24 px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Herramientas y Tecnologías</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -279,7 +302,7 @@ function App() {
         </div>
       </section>
 
-      <section id="funciones" className="py-24 px-8">
+      <section id="funciones" className="py-24 px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Funciones realizadas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -317,7 +340,7 @@ function App() {
         </div>
       </section>
 
-      <section id="servicios" className="py-24 px-8 bg-gray-50">
+      <section id="servicios" className="py-24 px-8 bg-gray-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Servicios</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -355,7 +378,7 @@ function App() {
         </div>
       </section>
 
-      <section id="educacion" className="py-24 px-8">
+      <section id="educacion" className="py-24 px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Educación</h2>
           <div className="max-w-2xl mx-auto">
@@ -368,7 +391,7 @@ function App() {
         </div>
       </section>
 
-      <section id="contacto" className="py-24 px-8">
+      <section id="contacto" className="py-24 px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Contacto</h2>
           <div className="max-w-2xl mx-auto text-center">
