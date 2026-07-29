@@ -166,7 +166,7 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Empresas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <a href="https://lospaisas.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up">
+            <a href="https://lospaisas.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up border-2 border-accent">
               <div className="h-56 overflow-hidden relative">
                 <img src={paisasImg} alt="Los Paisas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -180,7 +180,7 @@ function App() {
                 <p className="text-gray-500 text-sm">Análisis económico, gestión financiera y evaluación de indicadores de desempeño empresarial.</p>
               </div>
             </a>
-            <a href="https://fullhogar.com.co/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-1">
+            <a href="https://fullhogar.com.co/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-1 border-2 border-accent">
               <div className="h-56 overflow-hidden relative">
                 <img src={fullhogarImg} alt="Fullhogar" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -194,7 +194,7 @@ function App() {
                 <p className="text-gray-500 text-sm">Administración de relaciones comerciales, análisis de mercado y estrategias de ventas.</p>
               </div>
             </a>
-            <a href="https://www.cooperativacredifacil.fin.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-2">
+            <a href="https://www.cooperativacredifacil.fin.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-2 border-2 border-accent">
               <div className="h-56 overflow-hidden relative">
                 <img src={cfacilImg} alt="Credifacil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -208,7 +208,7 @@ function App() {
                 <p className="text-gray-500 text-sm">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
               </div>
             </a>
-            <a href="https://quevedo.gob.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-3">
+            <a href="https://quevedo.gob.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-3 border-2 border-accent">
               <div className="h-56 overflow-hidden relative">
                 <img src={municipioImg} alt="Municipio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -222,7 +222,7 @@ function App() {
                 <p className="text-gray-500 text-sm">Apoyo en gestión pública, análisis de políticas locales y administración de recursos municipales.</p>
               </div>
             </a>
-            <a href="http://acotecnic.com/portfolio/casa-judicial-quevedo/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-4">
+            <a href="http://acotecnic.com/portfolio/casa-judicial-quevedo/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-4 border-2 border-accent">
               <div className="h-56 overflow-hidden relative">
                 <img src={casaJudicialImg} alt="Casa Judicial" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -244,7 +244,7 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Herramientas y Tecnologías</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
                 <img src={officeImg} alt="Microsoft Office" className="max-h-full max-w-full object-contain" />
               </div>
@@ -253,7 +253,7 @@ function App() {
                 <p className="text-gray-600 leading-relaxed">Manejo avanzado de herramientas de Office para análisis de datos, documentación y generación de reportes.</p>
               </div>
             </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
                 <img src={perseoImg} alt="Perseo" className="max-h-full max-w-full object-contain" />
               </div>
@@ -262,7 +262,7 @@ function App() {
                 <p className="text-gray-600 leading-relaxed">Sistema de información financiera para análisis de indicadores económicos y gestión de datos.</p>
               </div>
             </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
                 <img src={notionImg} alt="Notion" className="max-h-full max-w-full object-contain" />
               </div>
@@ -271,7 +271,7 @@ function App() {
                 <p className="text-gray-600 leading-relaxed">Organización de proyectos, documentación y gestión de tareas para optimizar el trabajo.</p>
               </div>
             </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
                 <img src={powerbiImg} alt="Power BI" className="max-h-full max-w-full object-contain" />
               </div>
@@ -280,7 +280,7 @@ function App() {
                 <p className="text-gray-600 leading-relaxed">Herramienta de inteligencia de negocios para visualización de datos y análisis interactivo.</p>
               </div>
             </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
                 <img src={canvaImg} alt="Canva" className="max-h-full max-w-full object-contain" />
               </div>
@@ -289,7 +289,7 @@ function App() {
                 <p className="text-gray-600 leading-relaxed">Diseño gráfico para creación de presentaciones, infografías y materiales visuales profesionales.</p>
               </div>
             </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
                 <img src={hubspotImg} alt="HubSpot" className="max-h-full max-w-full object-contain" />
               </div>
@@ -306,32 +306,32 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Funciones realizadas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="text-5xl mb-4">💼</div>
               <h3 className="text-xl text-primary mb-3">Gestión Administrativa</h3>
               <p className="text-gray-600 leading-relaxed">Agendamiento de citas, gestión documental, órdenes de compra y procesamiento de pagos a proveedores.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="text-5xl mb-4">💰</div>
               <h3 className="text-xl text-primary mb-3">Control Financiero</h3>
               <p className="text-gray-600 leading-relaxed">Facturación, arqueo y cuadre de caja, depósitos, liquidaciones y conciliación bancaria de reportes.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="text-5xl mb-4">📦</div>
               <h3 className="text-xl text-primary mb-3">Control de Inventario</h3>
               <p className="text-gray-600 leading-relaxed">Perchado de mercadería, control de stock y gestión de inventario para optimización de recursos.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="text-5xl mb-4">🤝</div>
               <h3 className="text-xl text-primary mb-3">Atención al Cliente</h3>
               <p className="text-gray-600 leading-relaxed">Atención presencial y virtual, resolución de consultas y soporte integral a clientes.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="text-5xl mb-4">📧</div>
               <h3 className="text-xl text-primary mb-3">Comunicación</h3>
               <p className="text-gray-600 leading-relaxed">Gestión de consultas vía WhatsApp y Gmail, coordinación con proveedores y elaboración de informes.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="text-5xl mb-4">📊</div>
               <h3 className="text-xl text-primary mb-3">Reportes y Análisis</h3>
               <p className="text-gray-600 leading-relaxed">Elaboración de informes, análisis de datos y seguimiento de indicadores de desempeño.</p>
@@ -344,32 +344,32 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Servicios</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center border-2 border-accent">
               <div className="text-5xl mb-4">📊</div>
               <h3 className="text-xl text-primary mb-3">Análisis Económico</h3>
               <p className="text-gray-600 leading-relaxed">Evaluación detallada de escenarios económicos y tendencias de mercado para toma de decisiones.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center border-2 border-accent">
               <div className="text-5xl mb-4">💼</div>
               <h3 className="text-xl text-primary mb-3">Consultoría Financiera</h3>
               <p className="text-gray-600 leading-relaxed">Asesoramiento en planificación financiera, inversiones y optimización de recursos.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center border-2 border-accent">
               <div className="text-5xl mb-4">📈</div>
               <h3 className="text-xl text-primary mb-3">Evaluación de Proyectos</h3>
               <p className="text-gray-600 leading-relaxed">Análisis de viabilidad económica y financiera de proyectos de inversión.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center border-2 border-accent">
               <div className="text-5xl mb-4">🎯</div>
               <h3 className="text-xl text-primary mb-3">Planificación Estratégica</h3>
               <p className="text-gray-600 leading-relaxed">Desarrollo de estrategias económicas alineadas con objetivos organizacionales.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center border-2 border-accent">
               <div className="text-5xl mb-4">📋</div>
               <h3 className="text-xl text-primary mb-3">Estudios de Mercado</h3>
               <p className="text-gray-600 leading-relaxed">Investigación y análisis de condiciones de mercado para nuevos emprendimientos.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center border-2 border-accent">
               <div className="text-5xl mb-4">🎓</div>
               <h3 className="text-xl text-primary mb-3">Capacitación</h3>
               <p className="text-gray-600 leading-relaxed">Formación en economía, finanzas y herramientas de análisis para equipos y particulares.</p>
