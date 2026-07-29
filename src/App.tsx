@@ -143,51 +143,76 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Empresas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
-              <div className="h-48 overflow-hidden">
-                <img src={paisasImg} alt="Los Paisas" className="w-full h-full object-cover" />
+            <a href="https://lospaisas.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+              <div className="h-56 overflow-hidden relative">
+                <img src={paisasImg} alt="Los Paisas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl text-primary mb-2">Los Paisas</h3>
-                <p className="text-gray-600 leading-relaxed">Cargo: Economista. Análisis económico, gestión financiera y evaluación de indicadores de desempeño empresarial.</p>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl text-primary font-semibold">Los Paisas</h3>
+                  <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Economista</p>
+                <p className="text-gray-500 text-sm">Análisis económico, gestión financiera y evaluación de indicadores de desempeño empresarial.</p>
               </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
-              <div className="h-48 overflow-hidden">
-                <img src={fullhogarImg} alt="Fullhogar" className="w-full h-full object-cover" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl text-primary mb-2">Fullhogar</h3>
-                <p className="text-gray-600 leading-relaxed">Cargo: Gestión Comercial. Administración de relaciones comerciales, análisis de mercado y estrategias de ventas.</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
-              <div className="h-48 overflow-hidden">
-                <img src={cfacilImg} alt="Credifacil" className="w-full h-full object-cover" />
+            </a>
+            <a href="https://fullhogar.com.co/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+              <div className="h-56 overflow-hidden relative">
+                <img src={fullhogarImg} alt="Fullhogar" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl text-primary mb-2">Credifacil</h3>
-                <p className="text-gray-600 leading-relaxed">Cargo: Analista de Crédito. Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl text-primary font-semibold">Fullhogar</h3>
+                  <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Gestión Comercial</p>
+                <p className="text-gray-500 text-sm">Administración de relaciones comerciales, análisis de mercado y estrategias de ventas.</p>
               </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
-              <div className="h-48 overflow-hidden">
-                <img src={municipioImg} alt="Municipio" className="w-full h-full object-cover" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl text-primary mb-2">Municipio</h3>
-                <p className="text-gray-600 leading-relaxed">Cargo: Practicante. Apoyo en gestión pública, análisis de políticas locales y administración de recursos municipales.</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all">
-              <div className="h-48 overflow-hidden">
-                <img src={casaJudicialImg} alt="Casa Judicial" className="w-full h-full object-cover" />
+            </a>
+            <a href="https://www.cooperativacredifacil.fin.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+              <div className="h-56 overflow-hidden relative">
+                <img src={cfacilImg} alt="Credifacil" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl text-primary mb-2">Casa Judicial</h3>
-                <p className="text-gray-600 leading-relaxed">Cargo: Practicante. Análisis legal y económico, investigación de casos y elaboración de informes técnicos.</p>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl text-primary font-semibold">Credifacil</h3>
+                  <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Analista de Crédito</p>
+                <p className="text-gray-500 text-sm">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
               </div>
-            </div>
+            </a>
+            <a href="https://quevedo.gob.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+              <div className="h-56 overflow-hidden relative">
+                <img src={municipioImg} alt="Municipio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl text-primary font-semibold">Municipio</h3>
+                  <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Practicante</p>
+                <p className="text-gray-500 text-sm">Apoyo en gestión pública, análisis de políticas locales y administración de recursos municipales.</p>
+              </div>
+            </a>
+            <a href="http://acotecnic.com/portfolio/casa-judicial-quevedo/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline">
+              <div className="h-56 overflow-hidden relative">
+                <img src={casaJudicialImg} alt="Casa Judicial" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl text-primary font-semibold">Casa Judicial</h3>
+                  <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </div>
+                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Practicante</p>
+                <p className="text-gray-500 text-sm">Análisis legal y económico, investigación de casos y elaboración de informes técnicos.</p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -346,43 +371,26 @@ function App() {
       <section id="contacto" className="py-24 px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Contacto</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <div>
-              <h3 className="text-2xl text-primary mb-4">Conectemos</h3>
-              <p className="text-gray-600 leading-relaxed mb-8">Estoy disponible para consultoría y proyectos colaborativos. No dudes en contactarme.</p>
-              <div className="mb-8">
-                <div className="flex items-center gap-4 mb-4 text-gray-700">
-                  <span className="text-2xl">📧</span>
-                  <span>kimberlychizza@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-4 mb-4 text-gray-700">
-                  <span className="text-2xl">📱</span>
-                  <span>+593 95 944 7298</span>
-                </div>
-                <div className="flex items-center gap-4 text-gray-700">
-                  <span className="text-2xl">📍</span>
-                  <span>Quevedo, Ecuador</span>
-                </div>
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-2xl text-primary mb-4">Conectemos</h3>
+            <p className="text-gray-600 leading-relaxed mb-8">Estoy disponible para consultoría y proyectos colaborativos. No dudes en contactarme.</p>
+            <div className="mb-8">
+              <div className="flex items-center justify-center gap-4 mb-4 text-gray-700">
+                <span className="text-2xl">📧</span>
+                <span>kimberlychizza@gmail.com</span>
               </div>
-              <div className="flex gap-4">
-                <a href="https://www.linkedin.com/in/kimberlychiza/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 text-primary font-semibold border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all no-underline">LinkedIn</a>
+              <div className="flex items-center justify-center gap-4 mb-4 text-gray-700">
+                <span className="text-2xl">📱</span>
+                <span>+593 95 944 7298</span>
+              </div>
+              <div className="flex items-center justify-center gap-4 text-gray-700">
+                <span className="text-2xl">📍</span>
+                <span>Quevedo, Ecuador</span>
               </div>
             </div>
-            <form className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="mb-6">
-                <label htmlFor="name" className="block mb-2 text-primary font-semibold">Nombre</label>
-                <input type="text" id="name" name="name" required className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-light transition-colors" />
-              </div>
-              <div className="mb-6">
-                <label htmlFor="email" className="block mb-2 text-primary font-semibold">Email</label>
-                <input type="email" id="email" name="email" required className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-light transition-colors" />
-              </div>
-              <div className="mb-6">
-                <label htmlFor="message" className="block mb-2 text-primary font-semibold">Mensaje</label>
-                <textarea id="message" name="message" rows={5} required className="w-full p-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-light transition-colors resize-y"></textarea>
-              </div>
-              <button type="submit" className="w-full py-4 rounded-full bg-gradient-to-r from-accent-light to-accent text-white font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all">Enviar Mensaje</button>
-            </form>
+            <div className="flex gap-4 justify-center">
+              <a href="https://www.linkedin.com/in/kimberlychiza/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-primary font-semibold border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all no-underline">LinkedIn</a>
+            </div>
           </div>
         </div>
       </section>
