@@ -10,6 +10,7 @@ import canvaImg from './assets/canva.jpg';
 import powerbiImg from './assets/powerbi.png';
 import fullhogarImg from './assets/fullhogar.jpg';
 import hubspotImg from './assets/hubspot.png';
+import certificadoImg from './assets/CERTIFICADO MDT CONTABILIDAD, TRIBUTACIÓN Y LABORAL.pdf';
 
 function App() {
   useEffect(() => {
@@ -406,6 +407,22 @@ function App() {
                       Revista Religación
                     </a>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto mt-8">
+            <h3 className="text-xl text-center mb-4 text-primary font-semibold">Certificados</h3>
+            <div className="bg-white p-4 rounded-xl shadow-sm border-2 border-accent hover:shadow-lg transition-all">
+              <div className="flex items-center gap-3">
+                <div className="text-3xl">📜</div>
+                <div className="flex-1">
+                  <h4 className="text-lg text-primary mb-1 font-semibold">MDT Contabilidad, Tributación y Laboral</h4>
+                  <a href={certificadoImg} target="_blank" rel="noopener noreferrer" className="px-4 py-1.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm rounded-full hover:shadow-md transition-all no-underline flex items-center gap-1 w-fit">
+                    <i className="fas fa-external-link-alt text-xs"></i>
+                    Ver Certificado
+                  </a>
                 </div>
               </div>
             </div>
