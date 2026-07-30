@@ -113,8 +113,8 @@ function App() {
                 <div className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4">
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Último trabajo</div>
                   <h3 className="text-xl text-primary mb-2">Los Paisas</h3>
-                  <p className="text-accent font-semibold mb-2">Economista</p>
-                  <p className="text-gray-600 leading-relaxed">Última empresa donde trabajé, experiencia en análisis económico y gestión financiera.</p>
+                  <p className="text-accent font-semibold mb-2">Asistente administrativa y facturadora</p>
+                  <p className="text-gray-600 leading-relaxed">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
                 </div>
               </div>
 
@@ -123,8 +123,8 @@ function App() {
                 <div className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4">
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Segunda empresa</div>
                   <h3 className="text-xl text-primary mb-2">Fullhogar</h3>
-                  <p className="text-accent font-semibold mb-2">Gestión Comercial</p>
-                  <p className="text-gray-600 leading-relaxed">Segunda empresa donde trabajé, experiencia en gestión comercial y análisis de mercado.</p>
+                  <p className="text-accent font-semibold mb-2">Secretaria</p>
+                  <p className="text-gray-600 leading-relaxed">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
                 </div>
               </div>
 
@@ -133,8 +133,8 @@ function App() {
                 <div className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4">
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Primera empresa</div>
                   <h3 className="text-xl text-primary mb-2">Credifacil</h3>
-                  <p className="text-accent font-semibold mb-2">Analista de Crédito</p>
-                  <p className="text-gray-600 leading-relaxed">Primera empresa donde trabajé, experiencia en análisis de crédito y evaluación financiera.</p>
+                  <p className="text-accent font-semibold mb-2">Asesora de venta</p>
+                  <p className="text-gray-600 leading-relaxed">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
                 </div>
               </div>
 
@@ -144,7 +144,7 @@ function App() {
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Prácticas</div>
                   <h3 className="text-xl text-primary mb-2">Municipio</h3>
                   <p className="text-accent font-semibold mb-2">Practicante</p>
-                  <p className="text-gray-600 leading-relaxed">Prácticas profesionales en la entidad municipal, apoyo en gestión pública y políticas locales.</p>
+                  <p className="text-gray-600 leading-relaxed">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
                 </div>
               </div>
 
@@ -154,7 +154,7 @@ function App() {
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Prácticas</div>
                   <h3 className="text-xl text-primary mb-2">Casa Judicial</h3>
                   <p className="text-accent font-semibold mb-2">Practicante</p>
-                  <p className="text-gray-600 leading-relaxed">Prácticas profesionales en la Casa Judicial, experiencia en análisis legal y económico.</p>
+                  <p className="text-gray-600 leading-relaxed">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
                 </div>
               </div>
             </div>
@@ -176,8 +176,8 @@ function App() {
                   <h3 className="text-xl text-primary font-semibold">Los Paisas</h3>
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Economista</p>
-                <p className="text-gray-500 text-sm">Análisis económico, gestión financiera y evaluación de indicadores de desempeño empresarial.</p>
+                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Asistente administrativa y facturadora</p>
+                <p className="text-gray-500 text-sm">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
               </div>
             </a>
             <a href="https://fullhogar.com.co/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-1 border-2 border-accent">
@@ -190,8 +190,8 @@ function App() {
                   <h3 className="text-xl text-primary font-semibold">Fullhogar</h3>
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Gestión Comercial</p>
-                <p className="text-gray-500 text-sm">Administración de relaciones comerciales, análisis de mercado y estrategias de ventas.</p>
+                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Secretaria</p>
+                <p className="text-gray-500 text-sm">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
               </div>
             </a>
             <a href="https://www.cooperativacredifacil.fin.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-2 border-2 border-accent">
@@ -204,7 +204,7 @@ function App() {
                   <h3 className="text-xl text-primary font-semibold">Credifacil</h3>
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Analista de Crédito</p>
+                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Asesora de venta</p>
                 <p className="text-gray-500 text-sm">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
               </div>
             </a>
@@ -219,7 +219,7 @@ function App() {
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
                 <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Practicante</p>
-                <p className="text-gray-500 text-sm">Apoyo en gestión pública, análisis de políticas locales y administración de recursos municipales.</p>
+                <p className="text-gray-500 text-sm">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
               </div>
             </a>
             <a href="http://acotecnic.com/portfolio/casa-judicial-quevedo/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-4 border-2 border-accent">
@@ -233,7 +233,7 @@ function App() {
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
                 <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Practicante</p>
-                <p className="text-gray-500 text-sm">Análisis legal y económico, investigación de casos y elaboración de informes técnicos.</p>
+                <p className="text-gray-500 text-sm">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
               </div>
             </a>
           </div>
