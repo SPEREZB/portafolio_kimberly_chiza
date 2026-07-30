@@ -38,45 +38,47 @@ function App() {
   return (
     <>
       <nav className="bg-gradient-to-r from-accent to-accent-light sticky top-0 z-50 py-4 shadow-sm">
-        <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-          <div className="text-2xl font-bold text-white">Kimberly Chiza</div>
-          <ul className="flex gap-6 m-0 p-0 list-none">
-            <li><a href="#inicio" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-home text-sm"></i> Inicio</a></li>
-            <li><a href="#sobre-mi" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-user text-sm"></i> Sobre Mí</a></li>
-            <li><a href="#experiencia" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-briefcase text-sm"></i> Experiencia</a></li>
-            <li><a href="#empresas" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-building text-sm"></i> Empresas</a></li>
-            <li><a href="#tecnologias" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-tools text-sm"></i> Herramientas</a></li>
-            <li><a href="#funciones" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-tasks text-sm"></i> Funciones</a></li>
-            <li><a href="#servicios" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-cogs text-sm"></i> Servicios</a></li>
-            <li><a href="#contacto" className="text-white font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-envelope text-sm"></i> Contacto</a></li>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
+          <div className="text-xl md:text-2xl font-bold text-white">Kimberly Chiza</div>
+          <ul className="hidden md:flex gap-4 md:gap-6 m-0 p-0 list-none">
+            <li><a href="#inicio" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-home text-xs md:text-sm"></i> <span className="hidden sm:inline">Inicio</span></a></li>
+            <li><a href="#sobre-mi" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-user text-xs md:text-sm"></i> <span className="hidden sm:inline">Sobre Mí</span></a></li>
+            <li><a href="#experiencia" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-briefcase text-xs md:text-sm"></i> <span className="hidden sm:inline">Experiencia</span></a></li>
+            <li><a href="#empresas" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-building text-xs md:text-sm"></i> <span className="hidden sm:inline">Empresas</span></a></li>
+            <li><a href="#tecnologias" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-tools text-xs md:text-sm"></i> <span className="hidden sm:inline">Herramientas</span></a></li>
+            <li><a href="#funciones" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-tasks text-xs md:text-sm"></i> <span className="hidden sm:inline">Funciones</span></a></li>
+            <li><a href="#servicios" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-cogs text-xs md:text-sm"></i> <span className="hidden sm:inline">Servicios</span></a></li>
+            <li><a href="#contacto" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-envelope text-xs md:text-sm"></i> <span className="hidden sm:inline">Contacto</span></a></li>
           </ul>
         </div>
       </nav>
 
-      <section id="inicio" className="bg-gradient-to-br from-slate-50 to-slate-100 min-h-[85vh] flex items-center justify-center py-16 px-8 fade-in-section">
-        <div className="max-w-4xl text-center">
+      <section id="inicio" className="bg-gradient-to-br from-slate-50 to-slate-100 min-h-[85vh] flex items-center justify-center py-12 px-4 md:px-8 fade-in-section">
+        <div className="max-w-4xl text-center px-4">
           <div className="mb-10">
-            <div className="w-52 h-52 mx-auto rounded-full bg-gradient-to-br from-accent to-orange-400 p-1.5 shadow-xl">
+            <div className="w-40 h-40 md:w-52 md:h-52 mx-auto rounded-full bg-gradient-to-br from-accent to-orange-400 p-1.5 shadow-xl">
               <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-7xl">
                 👩‍💼
               </div>
             </div>
           </div>
-          <h1 className="text-6xl font-bold mb-4 text-accent tracking-tight">Kimberly Chiza</h1>
-          <h2 className="text-2xl font-medium mb-6 text-gray-600">Economista Profesional</h2>
-          <p className="text-xl mb-12 text-gray-500 leading-relaxed max-w-2xl mx-auto font-light">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-accent tracking-tight">Kimberly Chiza</h1>
+          <h2 className="text-xl md:text-2xl font-medium mb-6 text-gray-600">Economista Profesional</h2>
+          <p className="text-lg md:text-xl mb-12 text-gray-500 leading-relaxed max-w-2xl mx-auto font-light">
             Especialista en análisis económico, consultoría financiera y planificación estratégica
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="#contacto" className="px-10 py-4 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Contáctame</a>
-            <a href="#servicios" className="px-10 py-4 rounded-full border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">Mis Servicios</a>
+            <a href="#contacto" className="px-8 md:px-10 py-3 md:py-4 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">Contáctame</a>
+            <a href="#servicios" className="px-8 md:px-10 py-3 md:py-4 rounded-full border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">Mis Servicios</a>
           </div>
         </div>
       </section>
 
-      <section id="sobre-mi" className="py-24 px-8 fade-in-section">
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="sobre-mi" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Sobre Mí</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Sobre Mí</h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg leading-relaxed text-gray-700 mb-6">
               Soy economista con amplia experiencia en análisis de mercados, evaluación de proyectos 
@@ -102,9 +104,11 @@ function App() {
         </div>
       </section>
 
-      <section id="experiencia" className="py-24 px-8 fade-in-section">
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="experiencia" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Experiencia</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Experiencia</h2>
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-light to-accent transform md:-translate-x-1/2"></div>
@@ -163,9 +167,11 @@ function App() {
         </div>
       </section>
 
-      <section id="empresas" className="py-24 px-8 bg-gray-50 fade-in-section">
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="empresas" className="py-16 px-4 md:px-8 bg-gray-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Empresas</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Empresas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <a href="https://lospaisas.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up border-2 border-accent">
               <div className="h-56 overflow-hidden relative">
@@ -241,9 +247,11 @@ function App() {
         </div>
       </section>
 
-      <section id="tecnologias" className="py-24 px-8 fade-in-section">
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="tecnologias" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Herramientas y Tecnologías</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Herramientas y Tecnologías</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
@@ -303,9 +311,11 @@ function App() {
         </div>
       </section>
 
-      <section id="funciones" className="py-24 px-8 fade-in-section">
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="funciones" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Funciones realizadas</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Funciones realizadas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="text-5xl mb-4">💼</div>
@@ -341,9 +351,11 @@ function App() {
         </div>
       </section>
 
-      <section id="servicios" className="py-24 px-8 bg-gray-50 fade-in-section">
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="servicios" className="py-16 px-4 md:px-8 bg-gray-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Servicios</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Servicios</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center border-2 border-accent">
               <div className="text-5xl mb-4">📊</div>
@@ -379,7 +391,9 @@ function App() {
         </div>
       </section>
 
-      <section id="educacion" className="py-24 px-8 fade-in-section">
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="educacion" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Educación</h2>
           <div className="max-w-2xl mx-auto mb-12">
@@ -428,9 +442,11 @@ function App() {
             </div>
           </div>
         </div>
-      </section> 
+      </section>
 
-      <section id="contacto" className="py-24 px-8 fade-in-section">
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="contacto" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Contacto</h2>
           <div className="max-w-2xl mx-auto text-center">
