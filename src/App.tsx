@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import paisasImg from './assets/paisas.jpg';
 import municipioImg from './assets/municipio.jpg';
 import casaJudicialImg from './assets/casa_judicial.jpg';
@@ -13,6 +13,47 @@ import hubspotImg from './assets/hubspot.png';
 import certificadoImg from './assets/CERTIFICADO MDT CONTABILIDAD, TRIBUTACIÓN Y LABORAL.pdf';
 
 function App() {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const technologies = [
+    {
+      name: 'Microsoft Office',
+      description: 'Manejo avanzado de herramientas de Office para análisis de datos, documentación y generación de reportes.',
+      details: 'Excel avanzado para análisis financiero, Word para documentación formal, PowerPoint para presentaciones profesionales.',
+      companies: ['Microsoft', 'Google', 'Amazon', 'Apple', 'Meta', 'Netflix', 'Spotify']
+    },
+    {
+      name: 'Perseo',
+      description: 'Sistema de información financiera para análisis de indicadores económicos y gestión de datos.',
+      details: 'Software de contabilidad y finanzas para gestión de indicadores macroeconómicos y control financiero.',
+      companies: ['Gobiernos locales', 'Instituciones financieras', 'Bancos', 'Empresas de contabilidad']
+    },
+    {
+      name: 'Notion',
+      description: 'Organización de proyectos, documentación y gestión de tareas para optimizar el trabajo.',
+      details: 'Gestión de proyectos, bases de datos, documentación colaborativa y seguimiento de tareas.',
+      companies: ['OpenAI', 'Figma', 'Nvidia', 'Toyota', 'L\'Oréal', 'Volvo', 'Faire']
+    },
+    {
+      name: 'Power BI',
+      description: 'Herramienta de inteligencia de negocios para visualización de datos y análisis interactivo.',
+      details: 'Dashboards interactivos, análisis de datos de ventas, reportes financieros y KPIs.',
+      companies: ['Microsoft', 'Adobe', 'HP', 'Dell', 'Toyota', 'Pfizer', 'Coca-Cola']
+    },
+    {
+      name: 'Canva',
+      description: 'Diseño gráfico para creación de presentaciones, infografías y materiales visuales profesionales.',
+      details: 'Diseño de presentaciones, infografías, materiales de marketing y contenido visual.',
+      companies: ['Expedia', 'Grove', 'Airbnb', 'Salesforce', 'Aramark', 'Volvo', 'Faire']
+    },
+    {
+      name: 'HubSpot',
+      description: 'Plataforma de CRM para gestión de relaciones con clientes, marketing automatizado y análisis de datos.',
+      details: 'Gestión de clientes, marketing automatizado, análisis de datos y seguimiento de leads.',
+      companies: ['Casio', 'Salud SA', 'FC Barcelona', 'Nubox', 'Copa Airlines']
+    }
+  ];
+
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -42,13 +83,52 @@ function App() {
           <div className="text-xl md:text-2xl font-bold text-white">Kimberly Chiza</div>
           <ul className="hidden md:flex gap-4 md:gap-6 m-0 p-0 list-none">
             <li><a href="#inicio" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-home text-xs md:text-sm"></i> <span className="hidden sm:inline">Inicio</span></a></li>
-            <li><a href="#sobre-mi" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-user text-xs md:text-sm"></i> <span className="hidden sm:inline">Sobre Mí</span></a></li>
-            <li><a href="#experiencia" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-briefcase text-xs md:text-sm"></i> <span className="hidden sm:inline">Experiencia</span></a></li>
-            <li><a href="#empresas" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-building text-xs md:text-sm"></i> <span className="hidden sm:inline">Empresas</span></a></li>
-            <li><a href="#tecnologias" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-tools text-xs md:text-sm"></i> <span className="hidden sm:inline">Herramientas</span></a></li>
-            <li><a href="#funciones" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-tasks text-xs md:text-sm"></i> <span className="hidden sm:inline">Funciones</span></a></li>
-            <li><a href="#servicios" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-cogs text-xs md:text-sm"></i> <span className="hidden sm:inline">Servicios</span></a></li>
-            <li><a href="#contacto" className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2"><i className="fas fa-envelope text-xs md:text-sm"></i> <span className="hidden sm:inline">Contacto</span></a></li>
+            <li className="relative">
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'portfolio' ? null : 'portfolio')}
+                className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2 bg-transparent border-0 cursor-pointer"
+              >
+                <i className="fas fa-folder text-xs md:text-sm"></i> <span className="hidden sm:inline">Portfolio</span> <i className="fas fa-chevron-down text-xs"></i>
+              </button>
+              {activeDropdown === 'portfolio' && (
+                <ul className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[200px] list-none m-0 p-2">
+                  <li><a href="#sobre-mi" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-user text-xs"></i> Sobre Mí</a></li>
+                  <li><a href="#experiencia" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-briefcase text-xs"></i> Experiencia</a></li>
+                  <li><a href="#empresas" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-building text-xs"></i> Empresas</a></li>
+                  <li><a href="#contacto" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-envelope text-xs"></i> Contacto</a></li>
+                </ul>
+              )}
+            </li>
+            <li className="relative">
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'competencias' ? null : 'competencias')}
+                className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2 bg-transparent border-0 cursor-pointer"
+              >
+                <i className="fas fa-cogs text-xs md:text-sm"></i> <span className="hidden sm:inline">Competencias</span> <i className="fas fa-chevron-down text-xs"></i>
+              </button>
+              {activeDropdown === 'competencias' && (
+                <ul className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[200px] list-none m-0 p-2">
+                  <li><a href="#tecnologias" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-tools text-xs"></i> Tecnologías utilizadas</a></li>
+                  <li><a href="#funciones" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-tasks text-xs"></i> Funciones realizadas</a></li>
+                  <li><a href="#servicios" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-cogs text-xs"></i> Servicios</a></li>
+                </ul>
+              )}
+            </li>
+            <li className="relative">
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'educacion' ? null : 'educacion')}
+                className="text-white text-sm md:text-base font-medium hover:text-white/80 transition-colors no-underline flex items-center gap-2 bg-transparent border-0 cursor-pointer"
+              >
+                <i className="fas fa-graduation-cap text-xs md:text-sm"></i> <span className="hidden sm:inline">Educación</span> <i className="fas fa-chevron-down text-xs"></i>
+              </button>
+              {activeDropdown === 'educacion' && (
+                <ul className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[200px] list-none m-0 p-2">
+                  <li><a href="#educacion" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-graduation-cap text-xs"></i> Formación</a></li>
+                  <li><a href="#educacion" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-file-alt text-xs"></i> Artículos Científicos</a></li>
+                  <li><a href="#educacion" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-certificate text-xs"></i> Certificados</a></li>
+                </ul>
+              )}
+            </li>
           </ul>
         </div>
       </nav>
@@ -78,7 +158,7 @@ function App() {
 
       <section id="sobre-mi" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Sobre Mí</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-user text-accent"></i> Sobre Mí</h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg leading-relaxed text-gray-700 mb-6">
               Soy economista con amplia experiencia en análisis de mercados, evaluación de proyectos 
@@ -108,7 +188,7 @@ function App() {
 
       <section id="experiencia" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Experiencia</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-briefcase text-accent"></i> Experiencia</h2>
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-light to-accent transform md:-translate-x-1/2"></div>
@@ -171,7 +251,7 @@ function App() {
 
       <section id="empresas" className="py-16 px-4 md:px-8 bg-gray-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Empresas</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-building text-accent"></i> Empresas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <a href="https://lospaisas.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up border-2 border-accent">
               <div className="h-56 overflow-hidden relative">
@@ -251,62 +331,27 @@ function App() {
 
       <section id="tecnologias" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Herramientas y Tecnologías</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-tools text-accent"></i> Herramientas y Tecnologías</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
-                <img src={officeImg} alt="Microsoft Office" className="max-h-full max-w-full object-contain" />
+            {technologies.map((tech, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
+                <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
+                  <img src={index === 0 ? officeImg : index === 1 ? perseoImg : index === 2 ? notionImg : index === 3 ? powerbiImg : index === 4 ? canvaImg : hubspotImg} alt={tech.name} className="max-h-full max-w-full object-contain" />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-2xl text-primary mb-3">{tech.name}</h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">{tech.description}</p>
+                  <div className="border-t border-gray-200 pt-4">
+                    <h4 className="text-sm text-accent font-semibold mb-2">Empresas que lo usan:</h4>
+                    <div className="flex flex-wrap gap-1 justify-center">
+                      {tech.companies.map((company, idx) => (
+                        <span key={idx} className="px-2 py-1 bg-gradient-to-r from-accent to-accent-light text-white rounded-full text-xs font-medium">{company}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl text-primary mb-3">Microsoft Office</h3>
-                <p className="text-gray-600 leading-relaxed">Manejo avanzado de herramientas de Office para análisis de datos, documentación y generación de reportes.</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
-                <img src={perseoImg} alt="Perseo" className="max-h-full max-w-full object-contain" />
-              </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl text-primary mb-3">Perseo</h3>
-                <p className="text-gray-600 leading-relaxed">Sistema de información financiera para análisis de indicadores económicos y gestión de datos.</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
-                <img src={notionImg} alt="Notion" className="max-h-full max-w-full object-contain" />
-              </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl text-primary mb-3">Notion</h3>
-                <p className="text-gray-600 leading-relaxed">Organización de proyectos, documentación y gestión de tareas para optimizar el trabajo.</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
-                <img src={powerbiImg} alt="Power BI" className="max-h-full max-w-full object-contain" />
-              </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl text-primary mb-3">Power BI</h3>
-                <p className="text-gray-600 leading-relaxed">Herramienta de inteligencia de negocios para visualización de datos y análisis interactivo.</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
-                <img src={canvaImg} alt="Canva" className="max-h-full max-w-full object-contain" />
-              </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl text-primary mb-3">Canva</h3>
-                <p className="text-gray-600 leading-relaxed">Diseño gráfico para creación de presentaciones, infografías y materiales visuales profesionales.</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="h-56 bg-gray-100 flex items-center justify-center p-8">
-                <img src={hubspotImg} alt="HubSpot" className="max-h-full max-w-full object-contain" />
-              </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl text-primary mb-3">HubSpot</h3>
-                <p className="text-gray-600 leading-relaxed">Plataforma de CRM para gestión de relaciones con clientes, marketing automatizado y análisis de datos.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -315,7 +360,7 @@ function App() {
 
       <section id="funciones" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Funciones realizadas</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-tasks text-accent"></i> Funciones realizadas</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
               <div className="text-5xl mb-4">💼</div>
@@ -355,7 +400,7 @@ function App() {
 
       <section id="servicios" className="py-16 px-4 md:px-8 bg-gray-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Servicios</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-cogs text-accent"></i> Servicios</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all text-center border-2 border-accent">
               <div className="text-5xl mb-4">📊</div>
@@ -395,7 +440,7 @@ function App() {
 
       <section id="educacion" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Educación</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-graduation-cap text-accent"></i> Educación</h2>
           <div className="max-w-2xl mx-auto mb-12">
             <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-accent">
               <h3 className="text-xl text-primary mb-2 font-semibold">Licenciatura en Economía</h3>
@@ -403,9 +448,15 @@ function App() {
               <p className="text-gray-500 text-sm">2019 - 2025</p>
             </div>
           </div>
-          
+        </div>
+      </section>
+
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="articulos-cientificos" className="py-16 px-4 md:px-8 fade-in-section">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-file-alt text-accent"></i> Artículos Científicos</h2>
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-xl text-center mb-4 text-primary font-semibold">Artículos Científicos</h3>
             <div className="bg-white p-4 rounded-xl shadow-sm border-2 border-accent hover:shadow-lg transition-all">
               <div className="flex items-center gap-3">
                 <div className="text-3xl">📄</div>
@@ -425,9 +476,15 @@ function App() {
               </div>
             </div>
           </div>
-          
-          <div className="max-w-4xl mx-auto mt-8">
-            <h3 className="text-xl text-center mb-4 text-primary font-semibold">Certificados</h3>
+        </div>
+      </section>
+
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="certificados" className="py-16 px-4 md:px-8 fade-in-section">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-certificate text-accent"></i> Certificados</h2>
+          <div className="max-w-4xl mx-auto">
             <div className="bg-white p-4 rounded-xl shadow-sm border-2 border-accent hover:shadow-lg transition-all">
               <div className="flex items-center gap-3">
                 <div className="text-3xl">📜</div>
@@ -448,7 +505,7 @@ function App() {
 
       <section id="contacto" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Contacto</h2>
+          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-envelope text-accent"></i> Contacto</h2>
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-2xl text-primary mb-4">Conectemos</h3>
             <p className="text-gray-600 leading-relaxed mb-8">Estoy disponible para consultoría y proyectos colaborativos. No dudes en contactarme.</p>
