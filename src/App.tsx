@@ -186,12 +186,14 @@ function App() {
             <div className="mt-8">
               <h3 className="text-2xl text-primary mb-4">Habilidades</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Uso de herramientas tecnológicas</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Economía Financiera</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Estadística</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Excel con tablas dinamicas</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Modelado Económico</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Consultoría</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Análisis Financiero</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Contabilidad y Tributación</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Excel Avanzado</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Power BI</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Gestión de Inventarios</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Planificación Estratégica</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Análisis de Riesgo</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Gestión Documental</span>
               </div>
             </div>
           </div>
@@ -210,14 +212,24 @@ function App() {
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-orange-50/30 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('lospaisas')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
-                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Último trabajo</div>
-                  <h3 className="text-xl text-primary mb-2">Los Paisas</h3>
-                  <p className="text-accent font-semibold mb-2">Asistente administrativa y facturadora</p>
-                  <p className="text-gray-600 leading-relaxed">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Último trabajo</span>
+                      <i className="fas fa-building text-accent text-sm"></i>
+                    </div>
+                    <i className="fas fa-star text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
+                  </div>
+                  <h3 className="text-xl text-primary mb-2 font-bold">Los Paisas</h3>
+                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
+                    <i className="fas fa-user-tie text-xs"></i>
+                    Asistente administrativa y facturadora
+                  </p>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
                   {hoveredExperience === 'lospaisas' && (
                     <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={paisasImg} alt="Los Paisas" className="w-full h-full object-cover" />
@@ -229,14 +241,24 @@ function App() {
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-orange-50/30 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('fullhogar')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
-                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Segunda empresa</div>
-                  <h3 className="text-xl text-primary mb-2">Fullhogar</h3>
-                  <p className="text-accent font-semibold mb-2">Secretaria</p>
-                  <p className="text-gray-600 leading-relaxed">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Segunda empresa</span>
+                      <i className="fas fa-building text-accent text-sm"></i>
+                    </div>
+                    <i className="fas fa-briefcase text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
+                  </div>
+                  <h3 className="text-xl text-primary mb-2 font-bold">Fullhogar</h3>
+                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
+                    <i className="fas fa-user-tie text-xs"></i>
+                    Secretaria
+                  </p>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
                   {hoveredExperience === 'fullhogar' && (
                     <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={fullhogarImg} alt="Fullhogar" className="w-full h-full object-cover" />
@@ -248,14 +270,24 @@ function App() {
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-orange-50/30 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('credifacil')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
-                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Primera empresa</div>
-                  <h3 className="text-xl text-primary mb-2">Credifacil</h3>
-                  <p className="text-accent font-semibold mb-2">Asesora de venta</p>
-                  <p className="text-gray-600 leading-relaxed">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Primera empresa</span>
+                      <i className="fas fa-building text-accent text-sm"></i>
+                    </div>
+                    <i className="fas fa-landmark text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
+                  </div>
+                  <h3 className="text-xl text-primary mb-2 font-bold">Credifacil</h3>
+                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
+                    <i className="fas fa-user-tie text-xs"></i>
+                    Asesora de venta
+                  </p>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
                   {hoveredExperience === 'credifacil' && (
                     <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={cfacilImg} alt="Credifacil" className="w-full h-full object-cover" />
@@ -267,14 +299,24 @@ function App() {
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-orange-50/30 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('municipio')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
-                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Prácticas</div>
-                  <h3 className="text-xl text-primary mb-2">Municipio</h3>
-                  <p className="text-accent font-semibold mb-2">Practicante</p>
-                  <p className="text-gray-600 leading-relaxed">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Prácticas</span>
+                      <i className="fas fa-building text-accent text-sm"></i>
+                    </div>
+                    <i className="fas fa-university text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
+                  </div>
+                  <h3 className="text-xl text-primary mb-2 font-bold">Municipio</h3>
+                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
+                    <i className="fas fa-user-graduate text-xs"></i>
+                    Practicante
+                  </p>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
                   {hoveredExperience === 'municipio' && (
                     <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={municipioImg} alt="Municipio" className="w-full h-full object-cover" />
@@ -286,14 +328,24 @@ function App() {
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-orange-50/30 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('casajudicial')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
-                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Prácticas</div>
-                  <h3 className="text-xl text-primary mb-2">Casa Judicial</h3>
-                  <p className="text-accent font-semibold mb-2">Practicante</p>
-                  <p className="text-gray-600 leading-relaxed">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Prácticas</span>
+                      <i className="fas fa-building text-accent text-sm"></i>
+                    </div>
+                    <i className="fas fa-balance-scale text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
+                  </div>
+                  <h3 className="text-xl text-primary mb-2 font-bold">Casa Judicial</h3>
+                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
+                    <i className="fas fa-user-graduate text-xs"></i>
+                    Practicante
+                  </p>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
                   {hoveredExperience === 'casajudicial' && (
                     <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={casaJudicialImg} alt="Casa Judicial" className="w-full h-full object-cover" />
@@ -305,14 +357,24 @@ function App() {
               <div className="relative pl-20 md:pl-0">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:mx-auto md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  className="md:mx-auto md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-orange-50/30 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('uteq')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
-                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Educación</div>
-                  <h3 className="text-xl text-primary mb-2">Universidad Técnica Estatal de Quevedo</h3>
-                  <p className="text-accent font-semibold mb-2">Economía</p>
-                  <p className="text-gray-600 leading-relaxed">Formación académica en economía con enfoque en análisis económico, finanzas y planificación estratégica.</p>
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Educación</span>
+                      <i className="fas fa-graduation-cap text-accent text-sm"></i>
+                    </div>
+                    <i className="fas fa-graduation-cap text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
+                  </div>
+                  <h3 className="text-xl text-primary mb-2 font-bold">Universidad Técnica Estatal de Quevedo</h3>
+                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
+                    <i className="fas fa-graduation-cap text-xs"></i>
+                    Economía
+                  </p>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Formación académica en economía con enfoque en análisis económico, finanzas y planificación estratégica.</p>
                   {hoveredExperience === 'uteq' && (
                     <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={uteqImg} alt="UTEQ" className="w-full h-full object-cover" />
@@ -561,25 +623,34 @@ function App() {
 
       <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
 
-      <section id="articulos-cientificos" className="py-16 px-4 md:px-8 fade-in-section">
+      <section id="articulos-cientificos" className="py-16 px-4 md:px-8 bg-gradient-to-br from-slate-50 to-blue-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-file-alt text-accent"></i> Artículos Científicos</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white p-4 rounded-xl shadow-sm border-2 border-accent hover:shadow-lg transition-all">
-              <div className="flex items-center gap-3">
-                <div className="text-3xl">📄</div>
-                <div className="flex-1">
-                  <h4 className="text-lg text-primary mb-1 font-semibold">Análisis de indicadores macroeconómicos y su impacto en el consumo de los hogares en Ecuador</h4>
-                  <div className="flex flex-wrap gap-2">
-                    <a href="https://dialnet.unirioja.es/servlet/articulo?codigo=10755284" target="_blank" rel="noopener noreferrer" className="px-4 py-1.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm rounded-full hover:shadow-md transition-all no-underline flex items-center gap-1">
-                      <i className="fas fa-external-link-alt text-xs"></i>
-                      Dialnet
-                    </a>
-                    <a href="https://revista.religacion.com/index.php/religacion/article/view/1277/1643" target="_blank" rel="noopener noreferrer" className="px-4 py-1.5 border-2 border-accent text-accent text-sm rounded-full hover:bg-accent hover:text-white hover:shadow-md transition-all no-underline flex items-center gap-1">
-                      <i className="fas fa-external-link-alt text-xs"></i>
-                      Revista Religación
-                    </a>
-                  </div>
+          <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-file-alt text-accent"></i> Artículos Científicos</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Publicaciones académicas que demuestran mi capacidad de investigación y análisis en el campo económico.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group border-2 border-accent/20 hover:border-accent">
+              <div className="h-32 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-white/10"></div>
+                <i className="fas fa-book-open text-6xl text-white relative z-10"></i>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-white/20 rounded-full"></div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-white/20 rounded-full"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">Investigación</span>
+                  <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Publicado</span>
+                </div>
+                <h3 className="text-xl text-primary font-semibold mb-2">Análisis de indicadores macroeconómicos</h3>
+                <p className="text-gray-600 text-sm mb-4">Impacto de indicadores macroeconómicos en el consumo de los hogares en Ecuador.</p>
+                <div className="flex flex-wrap gap-2">
+                  <a href="https://dialnet.unirioja.es/servlet/articulo?codigo=10755284" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent to-accent-light text-white text-sm font-semibold rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">
+                    <i className="fas fa-external-link-alt text-xs"></i>
+                    Dialnet
+                  </a>
+                  <a href="https://revista.religacion.com/index.php/religacion/article/view/1277/1643" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 border-2 border-accent text-accent text-sm font-semibold rounded-full hover:bg-accent hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">
+                    <i className="fas fa-external-link-alt text-xs"></i>
+                    Revista Religación
+                  </a>
                 </div>
               </div>
             </div>
@@ -589,20 +660,29 @@ function App() {
 
       <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
 
-      <section id="certificados" className="py-16 px-4 md:px-8 fade-in-section">
+      <section id="certificados" className="py-16 px-4 md:px-8 bg-gradient-to-br from-slate-50 to-orange-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-certificate text-accent"></i> Certificados</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white p-4 rounded-xl shadow-sm border-2 border-accent hover:shadow-lg transition-all">
-              <div className="flex items-center gap-3">
-                <div className="text-3xl">📜</div>
-                <div className="flex-1">
-                  <h4 className="text-lg text-primary mb-1 font-semibold">MDT Contabilidad, Tributación y Laboral</h4>
-                  <a href={certificadoImg} target="_blank" rel="noopener noreferrer" className="px-4 py-1.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm rounded-full hover:shadow-md transition-all no-underline flex items-center gap-1 w-fit">
-                    <i className="fas fa-external-link-alt text-xs"></i>
-                    Ver Certificado
-                  </a>
+          <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-certificate text-accent"></i> Certificados</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Certificaciones profesionales que avalan mi formación y experiencia en áreas especializadas.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group border-2 border-accent/20 hover:border-accent">
+              <div className="h-32 bg-gradient-to-br from-accent-light to-accent flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-white/10"></div>
+                <i className="fas fa-award text-6xl text-white relative z-10"></i>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-white/20 rounded-full"></div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-white/20 rounded-full"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">Certificación</span>
+                  <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Completado</span>
                 </div>
+                <h3 className="text-xl text-primary font-semibold mb-2">MDT Contabilidad, Tributación y Laboral</h3>
+                <p className="text-gray-600 text-sm mb-4">Formación especializada en contabilidad, tributación y legislación laboral aplicada.</p>
+                <a href={certificadoImg} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm font-semibold rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">
+                  <i className="fas fa-external-link-alt text-xs"></i>
+                  Ver Certificado
+                </a>
               </div>
             </div>
           </div>
