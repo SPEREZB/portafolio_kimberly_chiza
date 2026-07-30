@@ -381,15 +381,37 @@ function App() {
       <section id="educacion" className="py-24 px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl text-center mb-12 text-primary relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-accent-light after:to-accent after:mx-auto after:mt-4 after:rounded">Educación</h2>
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto mb-12">
             <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-accent">
               <h3 className="text-xl text-primary mb-2 font-semibold">Licenciatura en Economía</h3>
               <p className="text-accent font-semibold mb-1">Universidad Técnica Estatal de Quevedo</p>
               <p className="text-gray-500 text-sm">2019 - 2025</p>
             </div>
           </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-xl text-center mb-4 text-primary font-semibold">Artículos Científicos</h3>
+            <div className="bg-white p-4 rounded-xl shadow-sm border-2 border-accent hover:shadow-lg transition-all">
+              <div className="flex items-center gap-3">
+                <div className="text-3xl">📄</div>
+                <div className="flex-1">
+                  <h4 className="text-lg text-primary mb-1 font-semibold">Análisis de indicadores macroeconómicos y su impacto en el consumo de los hogares en Ecuador</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <a href="https://dialnet.unirioja.es/servlet/articulo?codigo=10755284" target="_blank" rel="noopener noreferrer" className="px-4 py-1.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm rounded-full hover:shadow-md transition-all no-underline flex items-center gap-1">
+                      <i className="fas fa-external-link-alt text-xs"></i>
+                      Dialnet
+                    </a>
+                    <a href="https://revista.religacion.com/index.php/religacion/article/view/1277/1643" target="_blank" rel="noopener noreferrer" className="px-4 py-1.5 border-2 border-accent text-accent text-sm rounded-full hover:bg-accent hover:text-white hover:shadow-md transition-all no-underline flex items-center gap-1">
+                      <i className="fas fa-external-link-alt text-xs"></i>
+                      Revista Religación
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </section> 
 
       <section id="contacto" className="py-24 px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
