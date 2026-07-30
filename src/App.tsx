@@ -11,9 +11,12 @@ import powerbiImg from './assets/powerbi.png';
 import fullhogarImg from './assets/fullhogar.jpg';
 import hubspotImg from './assets/hubspot.png';
 import certificadoImg from './assets/CERTIFICADO MDT CONTABILIDAD, TRIBUTACIÓN Y LABORAL.pdf';
+import uteqImg from './assets/uteq.png';
+import portadaImg from './assets/portada.jpg';
 
 function App() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [hoveredExperience, setHoveredExperience] = useState<string | null>(null);
 
   const technologies = [
     {
@@ -133,23 +136,34 @@ function App() {
         </div>
       </nav>
 
-      <section id="inicio" className="bg-gradient-to-br from-slate-50 to-slate-100 min-h-[85vh] flex items-center justify-center py-12 px-4 md:px-8 fade-in-section">
-        <div className="max-w-4xl text-center px-4">
-          <div className="mb-10">
-            <div className="w-40 h-40 md:w-52 md:h-52 mx-auto rounded-full bg-gradient-to-br from-accent to-orange-400 p-1.5 shadow-xl">
-              <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-7xl">
-                👩‍💼
+      <section id="inicio" className="relative min-h-[85vh] flex items-center justify-center py-12 px-4 md:px-8 fade-in-section">
+        <div className="absolute inset-0">
+          <img src={portadaImg} alt="Portada" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/70 to-slate-100/70"></div>
+        </div>
+        <div className="max-w-6xl w-full px-4 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-accent tracking-tight drop-shadow-lg">Hola, soy Kimberly Chiza</h1>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium mb-6 text-gray-700 drop-shadow-md">Economista</h2>
+              <p className="text-lg md:text-xl mb-4 text-gray-800 leading-relaxed font-semibold drop-shadow-md">
+                Especialista en análisis económico, consultoría financiera y planificación estratégica.
+              </p>
+              <p className="text-lg md:text-xl mb-8 text-gray-800 leading-relaxed font-semibold drop-shadow-md">
+                Este portafolio presenta mi experiencia profesional en diversas empresas, las funciones que he desempeñado y el dominio de herramientas tecnológicas aplicadas en mi trayectoria laboral.
+              </p>
+              <div className="flex gap-4 flex-wrap">
+                <a href="#contacto" className="px-8 md:px-10 py-3 md:py-4 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">Contáctame</a>
+                <a href="#servicios" className="px-8 md:px-10 py-3 md:py-4 rounded-full border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">Mis Servicios</a>
               </div>
             </div>
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-accent tracking-tight">Kimberly Chiza</h1>
-          <h2 className="text-xl md:text-2xl font-medium mb-6 text-gray-600">Economista Profesional</h2>
-          <p className="text-lg md:text-xl mb-12 text-gray-500 leading-relaxed max-w-2xl mx-auto font-light">
-            Especialista en análisis económico, consultoría financiera y planificación estratégica
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a href="#contacto" className="px-8 md:px-10 py-3 md:py-4 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">Contáctame</a>
-            <a href="#servicios" className="px-8 md:px-10 py-3 md:py-4 rounded-full border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">Mis Servicios</a>
+            <div className="order-1 md:order-2 flex justify-center">
+              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full bg-gradient-to-br from-accent to-orange-400 p-1.5 shadow-xl">
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-7xl md:text-8xl">
+                  👩‍💼
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -160,22 +174,22 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-user text-accent"></i> Sobre Mí</h2>
           <div className="max-w-3xl mx-auto">
-            <p className="text-lg leading-relaxed text-gray-700 mb-6">
+            <p className="text-lg leading-relaxed text-gray-700 mb-6 text-justify">
               Soy economista con amplia experiencia en análisis de mercados, evaluación de proyectos 
               y consultoría económica. Me dedico a proporcionar soluciones estratégicas basadas en 
               datos sólidos para empresas y particulares.
             </p>
-            <p className="text-lg leading-relaxed text-gray-700 mb-8">
+            <p className="text-lg leading-relaxed text-gray-700 mb-8 text-justify">
               Mi enfoque combina rigurosidad analítica con una visión práctica de los negocios, 
               ayudando a mis clientes a tomar decisiones informadas que maximizan su potencial económico.
             </p>
             <div className="mt-8">
               <h3 className="text-2xl text-primary mb-4">Habilidades</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Análisis de Datos</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Uso de herramientas tecnológicas</span>
                 <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Economía Financiera</span>
                 <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Estadística</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Excel Avanzado</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Excel con tablas dinamicas</span>
                 <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Modelado Económico</span>
                 <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Consultoría</span>
               </div>
@@ -195,51 +209,115 @@ function App() {
               
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4">
+                <div 
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  onMouseEnter={() => setHoveredExperience('lospaisas')}
+                  onMouseLeave={() => setHoveredExperience(null)}
+                >
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Último trabajo</div>
                   <h3 className="text-xl text-primary mb-2">Los Paisas</h3>
                   <p className="text-accent font-semibold mb-2">Asistente administrativa y facturadora</p>
                   <p className="text-gray-600 leading-relaxed">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
+                  {hoveredExperience === 'lospaisas' && (
+                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                      <img src={paisasImg} alt="Los Paisas" className="w-full h-full object-cover" />
+                    </div>
+                  )}
                 </div>
               </div>
 
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4">
+                <div 
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  onMouseEnter={() => setHoveredExperience('fullhogar')}
+                  onMouseLeave={() => setHoveredExperience(null)}
+                >
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Segunda empresa</div>
                   <h3 className="text-xl text-primary mb-2">Fullhogar</h3>
                   <p className="text-accent font-semibold mb-2">Secretaria</p>
                   <p className="text-gray-600 leading-relaxed">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
+                  {hoveredExperience === 'fullhogar' && (
+                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                      <img src={fullhogarImg} alt="Fullhogar" className="w-full h-full object-cover" />
+                    </div>
+                  )}
                 </div>
               </div>
 
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4">
+                <div 
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  onMouseEnter={() => setHoveredExperience('credifacil')}
+                  onMouseLeave={() => setHoveredExperience(null)}
+                >
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Primera empresa</div>
                   <h3 className="text-xl text-primary mb-2">Credifacil</h3>
                   <p className="text-accent font-semibold mb-2">Asesora de venta</p>
                   <p className="text-gray-600 leading-relaxed">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
+                  {hoveredExperience === 'credifacil' && (
+                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                      <img src={cfacilImg} alt="Credifacil" className="w-full h-full object-cover" />
+                    </div>
+                  )}
                 </div>
               </div>
 
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4">
+                <div 
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  onMouseEnter={() => setHoveredExperience('municipio')}
+                  onMouseLeave={() => setHoveredExperience(null)}
+                >
                   <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Prácticas</div>
                   <h3 className="text-xl text-primary mb-2">Municipio</h3>
                   <p className="text-accent font-semibold mb-2">Practicante</p>
                   <p className="text-gray-600 leading-relaxed">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
+                  {hoveredExperience === 'municipio' && (
+                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                      <img src={municipioImg} alt="Municipio" className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="relative pl-20 md:pl-0 mb-12">
+                <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
+                <div 
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  onMouseEnter={() => setHoveredExperience('casajudicial')}
+                  onMouseLeave={() => setHoveredExperience(null)}
+                >
+                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Prácticas</div>
+                  <h3 className="text-xl text-primary mb-2">Casa Judicial</h3>
+                  <p className="text-accent font-semibold mb-2">Practicante</p>
+                  <p className="text-gray-600 leading-relaxed">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
+                  {hoveredExperience === 'casajudicial' && (
+                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                      <img src={casaJudicialImg} alt="Casa Judicial" className="w-full h-full object-cover" />
+                    </div>
+                  )}
                 </div>
               </div>
 
               <div className="relative pl-20 md:pl-0">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4">
-                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Prácticas</div>
-                  <h3 className="text-xl text-primary mb-2">Casa Judicial</h3>
-                  <p className="text-accent font-semibold mb-2">Practicante</p>
-                  <p className="text-gray-600 leading-relaxed">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
+                <div 
+                  className="md:mx-auto md:w-[calc(50%-2rem)] bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow ml-4 relative"
+                  onMouseEnter={() => setHoveredExperience('uteq')}
+                  onMouseLeave={() => setHoveredExperience(null)}
+                >
+                  <div className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Educación</div>
+                  <h3 className="text-xl text-primary mb-2">Universidad Técnica Estatal de Quevedo</h3>
+                  <p className="text-accent font-semibold mb-2">Economía</p>
+                  <p className="text-gray-600 leading-relaxed">Formación académica en economía con enfoque en análisis económico, finanzas y planificación estratégica.</p>
+                  {hoveredExperience === 'uteq' && (
+                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                      <img src={uteqImg} alt="UTEQ" className="w-full h-full object-cover" />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -263,8 +341,14 @@ function App() {
                   <h3 className="text-xl text-primary font-semibold">Los Paisas</h3>
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Asistente administrativa y facturadora</p>
-                <p className="text-gray-500 text-sm">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
+                <div className="mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Empresa</span>
+                  <p className="text-gray-600 text-sm">Venta de insumos para pastelería, maquinas, ingredientes y productos para la industria alimentaria.</p>
+                </div>
+                <div>
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Mi rol</span>
+                  <p className="text-gray-500 text-sm">Asistente administrativa y facturadora. Facturación, producción de productos, control de inventario, depósitos, arqueo y cuadre de caja, roles de pago, atención a clientes, proveedores y colaboradores.</p>
+                </div>
               </div>
             </a>
             <a href="https://fullhogar.com.co/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-1 border-2 border-accent">
@@ -277,8 +361,14 @@ function App() {
                   <h3 className="text-xl text-primary font-semibold">Fullhogar</h3>
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Secretaria</p>
-                <p className="text-gray-500 text-sm">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
+                <div className="mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Empresa</span>
+                  <p className="text-gray-600 text-sm">Venta de electrodomésticos y artículos para el hogar.</p>
+                </div>
+                <div>
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Mi rol</span>
+                  <p className="text-gray-500 text-sm">Secretaria. Agendamiento de citas, órdenes de compra, control de inventarios y gestión de redes sociales.</p>
+                </div>
               </div>
             </a>
             <a href="https://www.cooperativacredifacil.fin.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-2 border-2 border-accent">
@@ -291,8 +381,14 @@ function App() {
                   <h3 className="text-xl text-primary font-semibold">Credifacil</h3>
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Asesora de venta</p>
-                <p className="text-gray-500 text-sm">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
+                <div className="mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Empresa</span>
+                  <p className="text-gray-600 text-sm">Cooperativa de ahorro y crédito que ofrece servicios financieros a sus asociados.</p>
+                </div>
+                <div>
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Mi rol</span>
+                  <p className="text-gray-500 text-sm">Asesora de venta. Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
+                </div>
               </div>
             </a>
             <a href="https://quevedo.gob.ec/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-3 border-2 border-accent">
@@ -302,11 +398,17 @@ function App() {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl text-primary font-semibold">Municipio</h3>
+                  <h3 className="text-xl text-primary font-semibold">Municipio de Quevedo</h3>
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Practicante</p>
-                <p className="text-gray-500 text-sm">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
+                <div className="mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Empresa</span>
+                  <p className="text-gray-600 text-sm">Entidad gubernamental del estado encargada de la administración local y servicios públicos.</p>
+                </div>
+                <div>
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Mi rol</span>
+                  <p className="text-gray-500 text-sm">Practicante. Creación de solicitudes, atención al público y gestión documental física y virtual.</p>
+                </div>
               </div>
             </a>
             <a href="http://acotecnic.com/portfolio/casa-judicial-quevedo/" target="_blank" rel="noopener noreferrer" className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group no-underline fade-in-up fade-in-up-delay-4 border-2 border-accent">
@@ -319,8 +421,14 @@ function App() {
                   <h3 className="text-xl text-primary font-semibold">Casa Judicial</h3>
                   <i className="fas fa-external-link-alt text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-sm mb-3">Cargo: Practicante</p>
-                <p className="text-gray-500 text-sm">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
+                <div className="mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Empresa</span>
+                  <p className="text-gray-600 text-sm">Entidad del sistema de justicia que facilita el acceso a servicios legales y mediación.</p>
+                </div>
+                <div>
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold mb-2">Mi rol</span>
+                  <p className="text-gray-500 text-sm">Practicante. Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al público.</p>
+                </div>
               </div>
             </a>
           </div>
@@ -507,8 +615,6 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-envelope text-accent"></i> Contacto</h2>
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl text-primary mb-4">Conectemos</h3>
-            <p className="text-gray-600 leading-relaxed mb-8">Estoy disponible para consultoría y proyectos colaborativos. No dudes en contactarme.</p>
             <div className="mb-8">
               <div className="flex items-center justify-center gap-4 mb-4 text-gray-700">
                 <span className="text-2xl">📧</span>
