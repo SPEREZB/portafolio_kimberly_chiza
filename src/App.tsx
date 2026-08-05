@@ -186,14 +186,38 @@ function App() {
             <div className="mt-8">
               <h3 className="text-2xl text-primary mb-4">Habilidades</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Análisis Financiero</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Contabilidad y Tributación</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Excel Avanzado</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Power BI</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Gestión de Inventarios</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Planificación Estratégica</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Análisis de Riesgo</span>
-                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium">Gestión Documental</span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium flex items-center gap-2">
+                  <i className="fas fa-chart-line"></i>
+                  Análisis Financiero
+                </span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium flex items-center gap-2">
+                  <i className="fas fa-calculator"></i>
+                  Contabilidad y Tributación
+                </span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium flex items-center gap-2">
+                  <i className="fas fa-file-excel"></i>
+                  Excel Avanzado
+                </span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium flex items-center gap-2">
+                  <i className="fas fa-chart-bar"></i>
+                  Power BI
+                </span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium flex items-center gap-2">
+                  <i className="fas fa-boxes"></i>
+                  Gestión de Inventarios
+                </span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium flex items-center gap-2">
+                  <i className="fas fa-chess"></i>
+                  Planificación Estratégica
+                </span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium flex items-center gap-2">
+                  <i className="fas fa-shield-alt"></i>
+                  Análisis de Riesgo
+                </span>
+                <span className="px-5 py-2 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-medium flex items-center gap-2">
+                  <i className="fas fa-folder-open"></i>
+                  Gestión Documental
+                </span>
               </div>
             </div>
           </div>
