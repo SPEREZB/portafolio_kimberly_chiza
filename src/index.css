@@ -113,3 +113,16 @@ body {
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out forwards;
 }
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgb(var(--accent) / 0.20), 0 0 32px rgb(var(--accent) / 0.10);
+  }
+  50% {
+    box-shadow: 0 0 22px rgb(var(--accent) / 0.45), 0 0 56px rgb(var(--accent) / 0.25);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2.4s ease-in-out infinite;
+}

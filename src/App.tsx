@@ -233,7 +233,7 @@ function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up">
               <i className="fas fa-briefcase text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">+1.5</h3>
+              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">+1</h3>
               <p className="text-primary font-semibold">Años de experiencia laboral</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up fade-in-up-delay-1">
@@ -270,14 +270,20 @@ function App() {
                   href="https://www.bancodelpacifico.com/personas/inicio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group no-underline block"
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/40 hover:border-accent group no-underline block animate-glow-pulse"
                   onMouseEnter={() => setHoveredExperience('bancopacifico')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Trabajo actual</span>
+                      <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                        </span>
+                        Trabajo actual
+                      </span>
                       <i className="fas fa-building text-accent text-sm"></i>
                     </div>
                     <i className="fas fa-university text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
@@ -328,7 +334,7 @@ function App() {
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('fullhogar')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
@@ -347,7 +353,7 @@ function App() {
                   </p>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
                   {hoveredExperience === 'fullhogar' && (
-                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={fullhogarImg} alt="Fullhogar" className="w-full h-full object-cover" />
                     </div>
                   )}
@@ -357,7 +363,7 @@ function App() {
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('credifacil')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
@@ -376,7 +382,7 @@ function App() {
                   </p>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
                   {hoveredExperience === 'credifacil' && (
-                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={cfacilImg} alt="Credifacil" className="w-full h-full object-cover" />
                     </div>
                   )}
@@ -386,7 +392,7 @@ function App() {
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
                 <div 
-                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
                   onMouseEnter={() => setHoveredExperience('municipio')}
                   onMouseLeave={() => setHoveredExperience(null)}
                 >
@@ -405,7 +411,7 @@ function App() {
                   </p>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
                   {hoveredExperience === 'municipio' && (
-                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
                       <img src={municipioImg} alt="Municipio" className="w-full h-full object-cover" />
                     </div>
                   )}
