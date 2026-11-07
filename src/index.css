@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   COLOR DEL PORTAFOLIO
+   Cambia SOLO estos valores RGB para personalizar todo el sitio.
+   Formato: R G B  (numeros de 0 a 255, separados por espacios)
+   Orden de cada opcion:  light | DEFAULT | dark
+
+   EMPRESAS:
+   - Banco del Pacifico:   61 111 209  | 0 47 135   | 2 29 73
+   - Banco Guayaquil:      240 89 168  | 210 0 110  | 158 0 83
+   - Produbanco:           105 190 40  | 0 105 60   | 0 74 43
+
+   OTROS COLORES:
+   - Magenta profesional:  232 121 249 | 192 38 211 | 162 28 175
+   - Rosa:                 249 139 240 | 246 85 223 | 207 43 183
+   - Naranja:              246 173 85  | 221 107 32 | 192 86 33
+   - Azul:                 96 165 250  | 37 99 235  | 29 78 216
+   - Verde esmeralda:      52 211 153  | 5 150 105  | 4 120 87
+   ============================================================ */
+:root {
+  --accent-light: 61 111 209;    /* #3d6fd1 */
+  --accent: 0 47 135;            /* #002f87 */
+  --accent-dark: 2 29 73;        /* #021d49 */
+}
+
 html {
   scroll-behavior: smooth;
 }

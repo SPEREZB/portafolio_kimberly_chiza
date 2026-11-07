@@ -10,9 +10,9 @@ export default {
         primary: '#1a202c',
         secondary: '#f7fafc',
         accent: {
-          light: '#f6ad55',
-          DEFAULT: '#dd6b20',
-          dark: '#c05621',
+          light: 'rgb(var(--accent-light) / <alpha-value>)',
+          DEFAULT: 'rgb(var(--accent) / <alpha-value>)',
+          dark: 'rgb(var(--accent-dark) / <alpha-value>)',
         },
       },
       fontFamily: {
