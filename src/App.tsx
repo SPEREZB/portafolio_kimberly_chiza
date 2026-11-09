@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import paisasImg from './assets/paisas.jpg';
+import paisasImg from './assets/paisas.png';
 import municipioImg from './assets/municipio.jpg';
 import casaJudicialImg from './assets/casa_judicial.jpg';
 import notionImg from './assets/notion.png';
@@ -17,7 +17,7 @@ import bancoPacificoImg from './assets/bancopacifico.jpg';
 
 function App() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [hoveredExperience, setHoveredExperience] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const technologies = [
     {
@@ -56,6 +56,17 @@ function App() {
       details: 'Gestión de clientes, marketing automatizado, análisis de datos y seguimiento de leads.',
       companies: ['Casio', 'Salud SA', 'FC Barcelona', 'Nubox', 'Copa Airlines']
     }
+  ];
+
+  // Galeria de evidencia: guarda la foto en src/assets, importala arriba
+  // con los demas imports y agrega un objeto a esta lista.
+  const evidencias = [
+    { src: bancoPacificoImg, titulo: 'Banco del Pacífico', descripcion: 'Cajera bancaria' },
+    { src: paisasImg, titulo: 'Los Paisas', descripcion: 'Asistente administrativa y facturadora' },
+    { src: fullhogarImg, titulo: 'Fullhogar', descripcion: 'Secretaria' },
+    { src: cfacilImg, titulo: 'Credifacil', descripcion: 'Asesora de venta' },
+    { src: municipioImg, titulo: 'Municipio de Quevedo', descripcion: 'Practicante' },
+    { src: casaJudicialImg, titulo: 'Casa Judicial', descripcion: 'Practicante' },
   ];
 
   useEffect(() => {
@@ -99,6 +110,7 @@ function App() {
                   <li><a href="#sobre-mi" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-user text-xs"></i> Sobre Mí</a></li>
                   <li><a href="#experiencia" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-briefcase text-xs"></i> Experiencia</a></li>
                   <li><a href="#empresas" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-building text-xs"></i> Empresas</a></li>
+                  <li><a href="#galeria" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-images text-xs"></i> Galería</a></li>
                   <li><a href="#contacto" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-envelope text-xs"></i> Contacto</a></li>
                 </ul>
               )}
@@ -270,9 +282,7 @@ function App() {
                   href="https://www.bancodelpacifico.com/personas/inicio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/40 hover:border-accent group no-underline block animate-glow-pulse"
-                  onMouseEnter={() => setHoveredExperience('bancopacifico')}
-                  onMouseLeave={() => setHoveredExperience(null)}
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] md:scale-[1.03] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/40 hover:border-accent group no-underline block animate-glow-pulse current-job"
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
@@ -288,26 +298,29 @@ function App() {
                     </div>
                     <i className="fas fa-university text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
                   </div>
-                  <h3 className="text-xl text-primary mb-2 font-bold">Banco del Pacífico</h3>
-                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
-                    <i className="fas fa-cash-register text-xs"></i>
-                    Cajera Bancaria
-                  </p>
-                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Atención integral al cliente, procesamiento de depósitos, retiros y pagos, custodia y arqueo de efectivo, y promoción de productos financieros.</p>
-                  {hoveredExperience === 'bancopacifico' && (
-                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent/30 shadow-md shrink-0">
                       <img src={bancoPacificoImg} alt="Banco del Pacífico" className="w-full h-full object-cover" />
                     </div>
-                  )}
+                    <div>
+                      <h3 className="text-xl text-primary mb-1 font-bold">Banco del Pacífico</h3>
+                      <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                        <i className="fas fa-cash-register text-xs"></i>
+                        Cajera Bancaria
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Atención integral al cliente, procesamiento de depósitos, retiros y pagos, custodia y arqueo de efectivo, y promoción de productos financieros.</p>
                 </a>
               </div>
 
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div
-                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
-                  onMouseEnter={() => setHoveredExperience('lospaisas')}
-                  onMouseLeave={() => setHoveredExperience(null)}
+                <a
+                  href="https://lospaisas.ec/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group no-underline block"
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
@@ -317,26 +330,29 @@ function App() {
                     </div>
                     <i className="fas fa-star text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
                   </div>
-                  <h3 className="text-xl text-primary mb-2 font-bold">Los Paisas</h3>
-                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
-                    <i className="fas fa-user-tie text-xs"></i>
-                    Asistente administrativa y facturadora
-                  </p>
-                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
-                  {hoveredExperience === 'lospaisas' && (
-                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent/30 shadow-md shrink-0">
                       <img src={paisasImg} alt="Los Paisas" className="w-full h-full object-cover" />
                     </div>
-                  )}
-                </div>
+                    <div>
+                      <h3 className="text-xl text-primary mb-1 font-bold">Los Paisas</h3>
+                      <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                        <i className="fas fa-user-tie text-xs"></i>
+                        Asistente administrativa y facturadora
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
+                </a>
               </div>
 
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div 
-                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
-                  onMouseEnter={() => setHoveredExperience('fullhogar')}
-                  onMouseLeave={() => setHoveredExperience(null)}
+                <a
+                  href="https://fullhogar.com.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group no-underline block"
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
@@ -346,26 +362,29 @@ function App() {
                     </div>
                     <i className="fas fa-briefcase text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
                   </div>
-                  <h3 className="text-xl text-primary mb-2 font-bold">Fullhogar</h3>
-                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
-                    <i className="fas fa-user-tie text-xs"></i>
-                    Secretaria
-                  </p>
-                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
-                  {hoveredExperience === 'fullhogar' && (
-                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent/30 shadow-md shrink-0">
                       <img src={fullhogarImg} alt="Fullhogar" className="w-full h-full object-cover" />
                     </div>
-                  )}
-                </div>
+                    <div>
+                      <h3 className="text-xl text-primary mb-1 font-bold">Fullhogar</h3>
+                      <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                        <i className="fas fa-user-tie text-xs"></i>
+                        Secretaria
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
+                </a>
               </div>
 
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div 
-                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
-                  onMouseEnter={() => setHoveredExperience('credifacil')}
-                  onMouseLeave={() => setHoveredExperience(null)}
+                <a
+                  href="https://www.cooperativacredifacil.fin.ec/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group no-underline block"
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
@@ -375,26 +394,29 @@ function App() {
                     </div>
                     <i className="fas fa-landmark text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
                   </div>
-                  <h3 className="text-xl text-primary mb-2 font-bold">Credifacil</h3>
-                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
-                    <i className="fas fa-user-tie text-xs"></i>
-                    Asesora de venta
-                  </p>
-                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
-                  {hoveredExperience === 'credifacil' && (
-                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent/30 shadow-md shrink-0">
                       <img src={cfacilImg} alt="Credifacil" className="w-full h-full object-cover" />
                     </div>
-                  )}
-                </div>
+                    <div>
+                      <h3 className="text-xl text-primary mb-1 font-bold">Credifacil</h3>
+                      <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                        <i className="fas fa-user-tie text-xs"></i>
+                        Asesora de venta
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
+                </a>
               </div>
 
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div 
-                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
-                  onMouseEnter={() => setHoveredExperience('municipio')}
-                  onMouseLeave={() => setHoveredExperience(null)}
+                <a
+                  href="https://quevedo.gob.ec/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group no-underline block"
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
@@ -404,26 +426,29 @@ function App() {
                     </div>
                     <i className="fas fa-university text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
                   </div>
-                  <h3 className="text-xl text-primary mb-2 font-bold">Municipio</h3>
-                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
-                    <i className="fas fa-user-graduate text-xs"></i>
-                    Practicante
-                  </p>
-                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
-                  {hoveredExperience === 'municipio' && (
-                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent/30 shadow-md shrink-0">
                       <img src={municipioImg} alt="Municipio" className="w-full h-full object-cover" />
                     </div>
-                  )}
-                </div>
+                    <div>
+                      <h3 className="text-xl text-primary mb-1 font-bold">Municipio</h3>
+                      <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                        <i className="fas fa-user-graduate text-xs"></i>
+                        Practicante
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
+                </a>
               </div>
 
               <div className="relative pl-20 md:pl-0 mb-12">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div 
-                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
-                  onMouseEnter={() => setHoveredExperience('casajudicial')}
-                  onMouseLeave={() => setHoveredExperience(null)}
+                <a
+                  href="http://acotecnic.com/portfolio/casa-judicial-quevedo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:ml-auto md:mr-0 md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group no-underline block"
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
@@ -433,26 +458,29 @@ function App() {
                     </div>
                     <i className="fas fa-balance-scale text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
                   </div>
-                  <h3 className="text-xl text-primary mb-2 font-bold">Casa Judicial</h3>
-                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
-                    <i className="fas fa-user-graduate text-xs"></i>
-                    Practicante
-                  </p>
-                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
-                  {hoveredExperience === 'casajudicial' && (
-                    <div className="absolute -left-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent/30 shadow-md shrink-0">
                       <img src={casaJudicialImg} alt="Casa Judicial" className="w-full h-full object-cover" />
                     </div>
-                  )}
-                </div>
+                    <div>
+                      <h3 className="text-xl text-primary mb-1 font-bold">Casa Judicial</h3>
+                      <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                        <i className="fas fa-user-graduate text-xs"></i>
+                        Practicante
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
+                </a>
               </div>
 
               <div className="relative pl-20 md:pl-0">
                 <div className="absolute left-6 md:left-1/2 top-0 w-5 h-5 bg-gradient-to-r from-accent-light to-accent rounded-full transform md:-translate-x-1/2 border-4 border-white shadow-lg z-10"></div>
-                <div 
-                  className="md:mx-auto md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group"
-                  onMouseEnter={() => setHoveredExperience('uteq')}
-                  onMouseLeave={() => setHoveredExperience(null)}
+                <a
+                  href="https://www.uteq.edu.ec/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:mx-auto md:w-[calc(50%-2rem)] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/20 hover:border-accent group no-underline block"
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
@@ -462,18 +490,20 @@ function App() {
                     </div>
                     <i className="fas fa-graduation-cap text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
                   </div>
-                  <h3 className="text-xl text-primary mb-2 font-bold">Universidad Técnica Estatal de Quevedo</h3>
-                  <p className="text-accent font-semibold mb-3 text-sm flex items-center gap-2">
-                    <i className="fas fa-graduation-cap text-xs"></i>
-                    Economía
-                  </p>
-                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Formación académica en economía con enfoque en análisis económico, finanzas y planificación estratégica.</p>
-                  {hoveredExperience === 'uteq' && (
-                    <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 w-48 h-32 rounded-lg overflow-hidden shadow-xl animate-fade-in z-20">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent/30 shadow-md shrink-0">
                       <img src={uteqImg} alt="UTEQ" className="w-full h-full object-cover" />
                     </div>
-                  )}
-                </div>
+                    <div>
+                      <h3 className="text-xl text-primary mb-1 font-bold">Universidad Técnica Estatal de Quevedo</h3>
+                      <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                        <i className="fas fa-graduation-cap text-xs"></i>
+                        Economía
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Formación académica en economía con enfoque en análisis económico, finanzas y planificación estratégica.</p>
+                </a>
               </div>
             </div>
           </div>
@@ -606,6 +636,34 @@ function App() {
                 </div>
               </div>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="galeria" className="py-16 px-4 md:px-8 fade-in-section">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-camera text-accent"></i> Galería</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Evidencia fotográfica de mi trabajo y experiencia profesional.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {evidencias.map((foto, index) => (
+              <button
+                key={index}
+                onClick={() => setSelectedImage(index)}
+                className={`relative h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group border-2 border-accent/20 hover:border-accent cursor-pointer p-0 fade-in-up ${index % 3 === 1 ? 'fade-in-up-delay-1' : index % 3 === 2 ? 'fade-in-up-delay-2' : ''}`}
+              >
+                <img src={foto.src} alt={foto.titulo} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
+                  <i className="fas fa-search-plus text-accent text-sm"></i>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-left translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <h3 className="text-white font-bold text-lg drop-shadow-md">{foto.titulo}</h3>
+                  <p className="text-white/80 text-sm">{foto.descripcion}</p>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -834,6 +892,46 @@ function App() {
           <p className="m-0">&copy; 2026 Kimberly Chiza. Todos los derechos reservados.</p>
         </div>
       </footer>
+
+      {selectedImage !== null && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-6 text-white/80 hover:text-white text-4xl transition-colors z-10"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Cerrar"
+          >
+            <i className="fas fa-times"></i>
+          </button>
+          <button
+            className="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white text-xl flex items-center justify-center transition-colors z-10"
+            onClick={(e) => { e.stopPropagation(); setSelectedImage((selectedImage + evidencias.length - 1) % evidencias.length); }}
+            aria-label="Anterior"
+          >
+            <i className="fas fa-chevron-left"></i>
+          </button>
+          <button
+            className="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white text-xl flex items-center justify-center transition-colors z-10"
+            onClick={(e) => { e.stopPropagation(); setSelectedImage((selectedImage + 1) % evidencias.length); }}
+            aria-label="Siguiente"
+          >
+            <i className="fas fa-chevron-right"></i>
+          </button>
+          <div className="max-w-4xl w-full flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={evidencias[selectedImage].src}
+              alt={evidencias[selectedImage].titulo}
+              className="max-h-[75vh] w-auto max-w-full rounded-2xl shadow-2xl object-contain"
+            />
+            <div className="text-center mt-5">
+              <h3 className="text-white text-xl font-bold">{evidencias[selectedImage].titulo}</h3>
+              <p className="text-white/70 text-sm mt-1">{evidencias[selectedImage].descripcion}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
