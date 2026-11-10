@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import paisasImg from './assets/paisas.png';
 import municipioImg from './assets/municipio.jpg';
 import casaJudicialImg from './assets/casa_judicial.jpg';
@@ -13,11 +13,48 @@ import hubspotImg from './assets/hubspot.png';
 import certificadoImg from './assets/CERTIFICADO MDT CONTABILIDAD, TRIBUTACIÓN Y LABORAL.pdf';
 import uteqImg from './assets/uteq.png';
 import portadaImg from './assets/portada.jpg';
+import meImg from './assets/me.jpeg';
 import bancoPacificoImg from './assets/bancopacifico.jpg';
+
+function AnimatedCounter({ target, prefix = '' }: { target: number; prefix?: string }) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setStarted(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.4 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    const duration = 1600;
+    const start = performance.now();
+    let raf: number;
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      setCount(Math.round((1 - Math.pow(1 - progress, 3)) * target));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [started, target]);
+
+  return <span ref={ref}>{prefix}{count}</span>;
+}
 
 function App() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  // const [selectedImage, setSelectedImage] = useState<number | null>(null); // galeria desactivada por ahora
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const technologies = [
     {
@@ -58,16 +95,16 @@ function App() {
     }
   ];
 
-  // Galeria de evidencia: guarda la foto en src/assets, importala arriba
-  // con los demas imports y agrega un objeto a esta lista.
-  const evidencias = [
-    { src: bancoPacificoImg, titulo: 'Banco del Pacífico', descripcion: 'Cajera bancaria' },
-    { src: paisasImg, titulo: 'Los Paisas', descripcion: 'Asistente administrativa y facturadora' },
-    { src: fullhogarImg, titulo: 'Fullhogar', descripcion: 'Secretaria' },
-    { src: cfacilImg, titulo: 'Credifacil', descripcion: 'Asesora de venta' },
-    { src: municipioImg, titulo: 'Municipio de Quevedo', descripcion: 'Practicante' },
-    { src: casaJudicialImg, titulo: 'Casa Judicial', descripcion: 'Practicante' },
-  ];
+  // Galeria de evidencia (desactivada por ahora): para reactivarla,
+  // descomenta este array, el estado selectedImage, la seccion y el lightbox.
+  // const evidencias = [
+  //   { src: bancoPacificoImg, titulo: 'Banco del Pacífico', descripcion: 'Cajera bancaria' },
+  //   { src: paisasImg, titulo: 'Los Paisas', descripcion: 'Asistente administrativa y facturadora' },
+  //   { src: fullhogarImg, titulo: 'Fullhogar', descripcion: 'Secretaria' },
+  //   { src: cfacilImg, titulo: 'Credifacil', descripcion: 'Asesora de venta' },
+  //   { src: municipioImg, titulo: 'Municipio de Quevedo', descripcion: 'Practicante' },
+  //   { src: casaJudicialImg, titulo: 'Casa Judicial', descripcion: 'Practicante' },
+  // ];
 
   useEffect(() => {
     const observerOptions = {
@@ -91,6 +128,12 @@ function App() {
       sections.forEach(section => observer.unobserve(section));
     };
   }, []);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   return (
     <>
       <nav className="bg-gradient-to-r from-accent to-accent-light sticky top-0 z-50 py-4 shadow-sm">
@@ -109,8 +152,9 @@ function App() {
                 <ul className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[200px] list-none m-0 p-2">
                   <li><a href="#sobre-mi" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-user text-xs"></i> Sobre Mí</a></li>
                   <li><a href="#experiencia" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-briefcase text-xs"></i> Experiencia</a></li>
+                  <li><a href="#negocio" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-store text-xs"></i> Negocio Familiar</a></li>
                   <li><a href="#empresas" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-building text-xs"></i> Empresas</a></li>
-                  <li><a href="#galeria" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-images text-xs"></i> Galería</a></li>
+                  {/* <li><a href="#galeria" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-images text-xs"></i> Galería</a></li> */}
                   <li><a href="#contacto" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-envelope text-xs"></i> Contacto</a></li>
                 </ul>
               )}
@@ -171,9 +215,9 @@ function App() {
               </div>
             </div>
             <div className="order-1 md:order-2 flex justify-center">
-              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full bg-gradient-to-br from-accent to-accent-light p-1.5 shadow-xl">
-                <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-7xl md:text-8xl">
-                  👩‍💼
+              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full bg-gradient-to-br from-accent to-accent-light p-1.5 shadow-xl shadow-accent/30 animate-glow-pulse">
+                <div className="w-full h-full rounded-full overflow-hidden bg-white">
+                  <img src={meImg} alt="Kimberly Chiza" className="w-full h-full object-cover object-top scale-[1.1] origin-[50%_28%]" />
                 </div>
               </div>
             </div>
@@ -245,22 +289,22 @@ function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up">
               <i className="fas fa-briefcase text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">+1</h3>
-              <p className="text-primary font-semibold">Años de experiencia laboral</p>
+              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={1} prefix="+" /></h3>
+              <p className="text-primary font-semibold">Año de experiencia laboral</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up fade-in-up-delay-1">
               <i className="fas fa-building text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">+5</h3>
+              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={5} prefix="+" /></h3>
               <p className="text-primary font-semibold">Empresas en mi trayectoria</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up fade-in-up-delay-2">
               <i className="fas fa-tools text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">+6</h3>
+              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={6} prefix="+" /></h3>
               <p className="text-primary font-semibold">Herramientas tecnológicas dominadas</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up fade-in-up-delay-3">
               <i className="fas fa-landmark text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">2</h3>
+              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={2} /></h3>
               <p className="text-primary font-semibold">Prácticas en instituciones públicas</p>
             </div>
           </div>
@@ -282,9 +326,15 @@ function App() {
                   href="https://www.bancodelpacifico.com/personas/inicio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] md:scale-[1.03] bg-gradient-to-br from-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/40 hover:border-accent group no-underline block animate-glow-pulse current-job"
+                  className="md:mr-auto md:ml-0 md:w-[calc(50%-2rem)] md:scale-[1.03] bg-gradient-to-br from-accent/10 via-white to-accent/5 p-6 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all ml-4 relative border-2 border-accent/40 hover:border-accent group no-underline block animate-glow-pulse current-job"
                 >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                    <div className="current-job-shine"></div>
+                  </div>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent-dark via-accent to-accent-light text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1 rounded-full shadow-lg shadow-accent/40 whitespace-nowrap z-20">
+                    ★ Empleo actual ★
+                  </div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
                       <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">
@@ -292,14 +342,14 @@ function App() {
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                         </span>
-                        Trabajo actual
+                        Entidad bancaria
                       </span>
                       <i className="fas fa-building text-accent text-sm"></i>
                     </div>
                     <i className="fas fa-university text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
                   </div>
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent/30 shadow-md shrink-0">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-accent shadow-lg shadow-accent/40 shrink-0">
                       <img src={bancoPacificoImg} alt="Banco del Pacífico" className="w-full h-full object-cover" />
                     </div>
                     <div>
@@ -311,6 +361,10 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Atención integral al cliente, procesamiento de depósitos, retiros y pagos, custodia y arqueo de efectivo, y promoción de productos financieros.</p>
+                  <div className="mt-3 flex items-center gap-2 bg-accent/10 rounded-lg px-3 py-2">
+                    <i className="fas fa-trophy text-accent text-xs"></i>
+                    <p className="text-accent text-xs font-semibold">Logro: +80 clientes atendidos al día y cuadre de caja sin diferencias</p>
+                  </div>
                 </a>
               </div>
 
@@ -325,7 +379,7 @@ function App() {
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Trabajo anterior</span>
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Materias primas alimenticias</span>
                       <i className="fas fa-building text-accent text-sm"></i>
                     </div>
                     <i className="fas fa-star text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
@@ -343,6 +397,10 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Facturación, producción de productos, control de inventario, depositos, arqueo y cuadre de caja, roles de pago, atención a clientes, provedores y colaboradores.</p>
+                  <div className="mt-3 flex items-center gap-2 bg-accent/10 rounded-lg px-3 py-2">
+                    <i className="fas fa-trophy text-accent text-xs"></i>
+                    <p className="text-accent text-xs font-semibold">Logro: +60 facturas emitidas al día y pagos puntuales a +15 proveedores</p>
+                  </div>
                 </a>
               </div>
 
@@ -357,7 +415,7 @@ function App() {
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Segunda empresa</span>
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Tienda del hogar</span>
                       <i className="fas fa-building text-accent text-sm"></i>
                     </div>
                     <i className="fas fa-briefcase text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
@@ -375,6 +433,10 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Agendamiento de citas, ordenes de compre, control de inventarios y gestión de redes sociales.</p>
+                  <div className="mt-3 flex items-center gap-2 bg-accent/10 rounded-lg px-3 py-2">
+                    <i className="fas fa-trophy text-accent text-xs"></i>
+                    <p className="text-accent text-xs font-semibold">Logro: gestión de +25 citas diarias e inventario de +400 productos</p>
+                  </div>
                 </a>
               </div>
 
@@ -389,7 +451,7 @@ function App() {
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Primera empresa</span>
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Cooperativa financiera</span>
                       <i className="fas fa-building text-accent text-sm"></i>
                     </div>
                     <i className="fas fa-landmark text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
@@ -407,6 +469,10 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Evaluación de solicitudes crediticias, análisis de riesgo financiero y gestión de cartera de clientes.</p>
+                  <div className="mt-3 flex items-center gap-2 bg-accent/10 rounded-lg px-3 py-2">
+                    <i className="fas fa-trophy text-accent text-xs"></i>
+                    <p className="text-accent text-xs font-semibold">Logro: evaluación de +20 solicitudes crediticias por semana</p>
+                  </div>
                 </a>
               </div>
 
@@ -421,7 +487,7 @@ function App() {
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Prácticas</span>
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Entidad gubernamental</span>
                       <i className="fas fa-building text-accent text-sm"></i>
                     </div>
                     <i className="fas fa-university text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
@@ -439,6 +505,10 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Creación de solicitudes, atención al publico y gestión documental fisicas y virtuales.</p>
+                  <div className="mt-3 flex items-center gap-2 bg-accent/10 rounded-lg px-3 py-2">
+                    <i className="fas fa-trophy text-accent text-xs"></i>
+                    <p className="text-accent text-xs font-semibold">Logro: digitalización y gestión de +300 documentos físicos y virtuales</p>
+                  </div>
                 </a>
               </div>
 
@@ -453,7 +523,7 @@ function App() {
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Prácticas</span>
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Entidad judicial</span>
                       <i className="fas fa-building text-accent text-sm"></i>
                     </div>
                     <i className="fas fa-balance-scale text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
@@ -471,6 +541,10 @@ function App() {
                     </div>
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Ingreso de casos judiciales, registro de anotaciones en reuniones, agendamiento de citas y atención al publico.</p>
+                  <div className="mt-3 flex items-center gap-2 bg-accent/10 rounded-lg px-3 py-2">
+                    <i className="fas fa-trophy text-accent text-xs"></i>
+                    <p className="text-accent text-xs font-semibold">Logro: registro de +50 casos judiciales y agendamiento de audiencias</p>
+                  </div>
                 </a>
               </div>
 
@@ -485,7 +559,7 @@ function App() {
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Educación</span>
+                      <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Universidad estatal</span>
                       <i className="fas fa-graduation-cap text-accent text-sm"></i>
                     </div>
                     <i className="fas fa-graduation-cap text-accent/30 text-lg group-hover:text-accent transition-colors"></i>
@@ -504,6 +578,44 @@ function App() {
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Formación académica en economía con enfoque en análisis económico, finanzas y planificación estratégica.</p>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="negocio" className="py-16 px-4 md:px-8 fade-in-section">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-store text-accent"></i> Negocio Familiar</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Además de mi experiencia en empresas, apoyo en la gestión del negocio de mi familia.</p>
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-gradient-to-br from-accent/10 via-white to-accent/5 p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all border-2 border-accent/40 hover:border-accent relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-2xl"></div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Comercio familiar</span>
+                <i className="fas fa-store text-accent text-sm"></i>
+              </div>
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-lg shadow-accent/40 shrink-0 group-hover:scale-110 transition-transform">
+                  <i className="fas fa-store text-white text-2xl"></i>
+                </div>
+                <div>
+                  <h3 className="text-xl text-primary mb-1 font-bold">Comerciante</h3>
+                  <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                    <i className="fas fa-user-tie text-xs"></i>
+                    Apoyo en gestión y administración
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Gestión integral del negocio familiar: venta de productos, cobranzas a clientes, manejo y arqueo de caja, control de inventario, realización de pedidos y atención personalizada.</p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-semibold">💵 Cobranzas</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-semibold">🛒 Ventas</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-semibold">📦 Inventario</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-semibold">🧾 Facturación</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-semibold">🤝 Atención al cliente</span>
               </div>
             </div>
           </div>
@@ -642,6 +754,7 @@ function App() {
 
       <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
 
+      {/* SECCION GALERIA DESACTIVADA TEMPORALMENTE - descomenta para reactivar
       <section id="galeria" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-camera text-accent"></i> Galería</h2>
@@ -669,6 +782,7 @@ function App() {
       </section>
 
       <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+      */}
 
       <section id="tecnologias" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
@@ -893,6 +1007,15 @@ function App() {
         </div>
       </footer>
 
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent-light text-white shadow-lg shadow-accent/40 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+        aria-label="Volver arriba"
+      >
+        <i className="fas fa-arrow-up"></i>
+      </button>
+
+      {/*
       {selectedImage !== null && (
         <div
           className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
@@ -932,6 +1055,7 @@ function App() {
           </div>
         </div>
       )}
+      */}
     </>
   )
 }

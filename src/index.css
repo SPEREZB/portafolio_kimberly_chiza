@@ -162,3 +162,31 @@ body {
   mask-composite: exclude;
   pointer-events: none;
 }
+
+@keyframes shineSweep {
+  0% {
+    left: -60%;
+  }
+  60% {
+    left: 130%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+.current-job-shine {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgb(255 255 255 / 0.4),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shineSweep 4.5s ease-in-out infinite;
+}
