@@ -51,6 +51,90 @@ function AnimatedCounter({ target, prefix = '' }: { target: number; prefix?: str
   return <span ref={ref}>{prefix}{count}</span>;
 }
 
+function CuadreCaja() {
+  const denominaciones = [1, 5, 10, 20, 50, 100];
+  const [arqueo, setArqueo] = useState(() => Math.floor(Math.random() * 1200) + 300);
+  const [conteos, setConteos] = useState<Record<number, number>>({ 1: 0, 5: 0, 10: 0, 20: 0, 50: 0, 100: 0 });
+  const [verificado, setVerificado] = useState(false);
+
+  const total = denominaciones.reduce((acc, d) => acc + d * conteos[d], 0);
+  const diferencia = total - arqueo;
+  const totalBilletes = denominaciones.reduce((acc, d) => acc + conteos[d], 0);
+
+  const cambiar = (d: number, delta: number) => {
+    setVerificado(false);
+    setConteos((prev) => ({ ...prev, [d]: Math.max(0, prev[d] + delta) }));
+  };
+
+  const reiniciar = () => {
+    setConteos({ 1: 0, 5: 0, 10: 0, 20: 0, 50: 0, 100: 0 });
+    setArqueo(Math.floor(Math.random() * 1200) + 300);
+    setVerificado(false);
+  };
+
+  return (
+    <div className="bg-white rounded-2xl border-2 border-accent/20 shadow-sm p-6 md:p-8">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-md shadow-accent/30 shrink-0">
+          <i className="fas fa-calculator text-white"></i>
+        </div>
+        <h3 className="text-xl md:text-2xl text-primary font-bold">Simulador de Cuadre de Caja</h3>
+      </div>
+      <p className="text-gray-600 text-sm mb-6">¿Te animas a cuadrar la caja como lo hago cada día en el banco? Ingresa los billetes por denominación hasta igualar el arqueo esperado.</p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {denominaciones.map((d) => (
+          <div key={d} className="flex items-center justify-between gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5">
+            <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm shrink-0">
+              <i className="fas fa-money-bill-wave text-[10px]"></i> ${d}
+            </span>
+            <div className="flex items-center gap-2">
+              <button onClick={() => cambiar(d, -1)} aria-label={`Quitar billete de $${d}`} className="w-7 h-7 rounded-full bg-white border border-gray-300 text-gray-600 hover:border-accent hover:text-accent transition-colors flex items-center justify-center">
+                <i className="fas fa-minus text-[10px]"></i>
+              </button>
+              <span className="w-6 text-center font-bold text-primary">{conteos[d]}</span>
+              <button onClick={() => cambiar(d, 1)} aria-label={`Agregar billete de $${d}`} className="w-7 h-7 rounded-full bg-white border border-gray-300 text-gray-600 hover:border-accent hover:text-accent transition-colors flex items-center justify-center">
+                <i className="fas fa-plus text-[10px]"></i>
+              </button>
+            </div>
+            <span className="text-sm font-semibold text-gray-500 w-14 text-right shrink-0">${(d * conteos[d]).toLocaleString()}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-accent/5 rounded-xl p-4 border border-accent/10">
+        <div className="text-center sm:text-left">
+          <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Arqueo esperado</p>
+          <p className="text-2xl font-bold text-accent m-0">${arqueo.toLocaleString()}</p>
+        </div>
+        <div className="text-center sm:text-left">
+          <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Total contado · {totalBilletes} billetes</p>
+          <p className="text-2xl font-bold text-primary m-0">${total.toLocaleString()}</p>
+        </div>
+        <div className="flex gap-2 flex-wrap justify-center">
+          <button onClick={() => setVerificado(true)} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm">
+            <i className="fas fa-balance-scale text-xs"></i> Cuadrar Caja
+          </button>
+          <button onClick={reiniciar} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white transition-all text-sm">
+            <i className="fas fa-rotate-right text-xs"></i> Reiniciar
+          </button>
+        </div>
+      </div>
+
+      {verificado && (
+        <div className={`mt-4 rounded-xl px-4 py-3 flex items-center gap-3 text-sm font-semibold border-2 ${diferencia === 0 ? 'bg-emerald-50 border-emerald-500 text-emerald-700' : 'bg-red-50 border-red-400 text-red-600'}`}>
+          <i className={`fas ${diferencia === 0 ? 'fa-check-circle' : 'fa-exclamation-triangle'}`}></i>
+          {diferencia === 0
+            ? '¡Caja cuadrada! Sin diferencias — así cierro cada jornada en el banco.'
+            : diferencia > 0
+              ? `Sobran $${diferencia.toLocaleString()} — revisa los fajos y vuelve a contar.`
+              : `Faltan $${Math.abs(diferencia).toLocaleString()} — algo no cuadra, inténtalo de nuevo.`}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function App() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   // const [selectedImage, setSelectedImage] = useState<number | null>(null); // galeria desactivada por ahora
@@ -353,10 +437,10 @@ function App() {
       <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
 
       <section id="fortalezas" className="py-16 px-4 md:px-8 bg-gradient-to-br from-white to-accent/5 fade-in-section">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1500px] mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-star text-accent"></i> Fortalezas Profesionales</h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Las áreas clave que una economista domina en la práctica diaria, aplicadas hoy en operaciones reales de ventanilla bancaria.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Las áreas clave que domino como economista en mi práctica diaria, aplicadas hoy en operaciones reales de ventanilla bancaria.</p>
+          <div className="fortalezas-grid">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
                 <i className="fas fa-money-bill-wave text-white text-2xl"></i>
@@ -392,34 +476,37 @@ function App() {
               <h3 className="text-xl text-primary mb-3 font-semibold">Formularios y Cumplimiento</h3>
               <p className="text-gray-600 leading-relaxed text-sm">Llenado riguroso de formularios para billetes de alta denominación ($50 y $100) y aplicación de los controles internos del banco.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-5">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
                 <i className="fas fa-chart-line text-white text-2xl"></i>
               </div>
               <h3 className="text-xl text-primary mb-3 font-semibold">Análisis Financiero</h3>
               <p className="text-gray-600 leading-relaxed text-sm">Elaboración de reportes, conciliación de operaciones y análisis de información económica para apoyar la toma de decisiones.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-1">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
                 <i className="fas fa-briefcase text-white text-2xl"></i>
               </div>
               <h3 className="text-xl text-primary mb-3 font-semibold">Gestión Administrativa</h3>
               <p className="text-gray-600 leading-relaxed text-sm">Agendamiento de citas, gestión documental, órdenes de compra y procesamiento de pagos a proveedores.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-1">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-2">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
                 <i className="fas fa-boxes text-white text-2xl"></i>
               </div>
               <h3 className="text-xl text-primary mb-3 font-semibold">Control de Inventario</h3>
               <p className="text-gray-600 leading-relaxed text-sm">Perchado de mercadería, control de stock y gestión de inventario para una óptima administración de recursos.</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-2">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-3">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
                 <i className="fas fa-headset text-white text-2xl"></i>
               </div>
               <h3 className="text-xl text-primary mb-3 font-semibold">Atención al Cliente</h3>
               <p className="text-gray-600 leading-relaxed text-sm">Atención presencial y virtual, resolución de consultas, comunicación por WhatsApp y correo, y coordinación con proveedores.</p>
             </div>
+          </div>
+          <div className="mt-14 max-w-3xl mx-auto fade-in-up">
+            <CuadreCaja />
           </div>
         </div>
       </section>
@@ -455,7 +542,7 @@ function App() {
       </section>
 
       <section id="recorrido" className="py-12 px-4 md:px-8 fade-in-section">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-8xl mx-auto">
           <p className="text-center text-sm font-bold tracking-widest uppercase text-accent mb-8 flex items-center justify-center gap-3">
             <i className="fas fa-route"></i> Empresas · Prácticas · Estudios <i className="fas fa-route"></i>
           </p>

@@ -229,3 +229,32 @@ body {
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
+
+.fortalezas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.fortalezas-grid > * {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .fortalezas-grid > * {
+    width: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .fortalezas-grid > * {
+    width: calc((100% - 4.5rem) / 4);
+  }
+}
+
+@media (min-width: 1280px) {
+  .fortalezas-grid > * {
+    width: calc((100% - 6rem) / 5);
+  }
+}
