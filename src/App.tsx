@@ -137,6 +137,7 @@ function CuadreCaja() {
 
 function App() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [showCaja, setShowCaja] = useState(false);
   // const [selectedImage, setSelectedImage] = useState<number | null>(null); // galeria desactivada por ahora
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -228,6 +229,19 @@ function App() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!showCaja) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowCaja(false);
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [showCaja]);
   return (
     <>
       <nav className="bg-gradient-to-r from-accent to-accent-light sticky top-0 z-50 py-4 shadow-sm">
@@ -504,9 +518,31 @@ function App() {
               <h3 className="text-xl text-primary mb-3 font-semibold">Atención al Cliente</h3>
               <p className="text-gray-600 leading-relaxed text-sm">Atención presencial y virtual, resolución de consultas, comunicación por WhatsApp y correo, y coordinación con proveedores.</p>
             </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-4">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-file-invoice text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Elaboración de Reportes</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Consolidación del reporte diario de operaciones con su respaldo documental completo, listo para auditoría y control interno.</p>
+            </div>
           </div>
           <div className="mt-14 max-w-3xl mx-auto fade-in-up">
-            <CuadreCaja />
+            <div className="bg-gradient-to-r from-accent to-accent-light rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-lg shadow-accent/30 relative overflow-hidden">
+              <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full pointer-events-none"></div>
+              <div className="absolute -left-4 -bottom-10 w-24 h-24 bg-white/10 rounded-full pointer-events-none"></div>
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                  <i className="fas fa-calculator text-white text-xl"></i>
+                </div>
+                <div className="text-center sm:text-left">
+                  <h3 className="text-white font-bold text-lg m-0">¿Puedes cuadrar la caja?</h3>
+                  <p className="text-white/80 text-sm m-0">Pon a prueba tu puntería con un arqueo real, como lo hago cada día en el banco.</p>
+                </div>
+              </div>
+              <button onClick={() => setShowCaja(true)} className="relative z-10 inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white text-accent font-bold hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm shrink-0">
+                <i className="fas fa-play text-xs"></i> Abrir simulador
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -519,8 +555,8 @@ function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up">
               <i className="fas fa-briefcase text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={1} prefix="+" /></h3>
-              <p className="text-primary font-semibold">Año de experiencia laboral</p>
+              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={2} prefix="+" /></h3>
+              <p className="text-primary font-semibold">Años de experiencia laboral</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up fade-in-up-delay-1">
               <i className="fas fa-building text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
@@ -1236,6 +1272,27 @@ function App() {
       >
         <i className="fas fa-arrow-up"></i>
       </button>
+
+      {showCaja && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setShowCaja(false)}
+        >
+          <div
+            className="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl animate-modal-pop"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowCaja(false)}
+              className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 shadow-sm flex items-center justify-center transition-colors"
+              aria-label="Cerrar"
+            >
+              <i className="fas fa-times"></i>
+            </button>
+            <CuadreCaja />
+          </div>
+        </div>
+      )}
 
       {/*
       {selectedImage !== null && (
