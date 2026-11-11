@@ -65,7 +65,7 @@ function App() {
     },
     {
       name: 'Perseo',
-      description: 'Sistema de información financiera para análisis de indicadores económicos y gestión de datos.',
+      description: 'Sistemas de información financiera para análisis de indicadores económicos y gestión de datos.',
       details: 'Software de contabilidad y finanzas para gestión de indicadores macroeconómicos y control financiero.',
       companies: ['Gobiernos locales', 'Instituciones financieras', 'Bancos', 'Empresas de contabilidad']
     },
