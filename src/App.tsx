@@ -95,6 +95,16 @@ function App() {
     }
   ];
 
+  const recorrido = [
+    { img: bancoPacificoImg, nombre: 'Banco del Pacífico', rol: 'Cajera Bancaria' },
+    { img: paisasImg, nombre: 'Los Paisas', rol: 'Asistente Administrativa' },
+    { img: fullhogarImg, nombre: 'Fullhogar', rol: 'Secretaria' },
+    { img: cfacilImg, nombre: 'Credifacil', rol: 'Asesora de Venta' },
+    { img: municipioImg, nombre: 'Municipio de Quevedo', rol: 'Practicante' },
+    { img: casaJudicialImg, nombre: 'Casa Judicial', rol: 'Practicante' },
+    { img: uteqImg, nombre: 'UTEQ', rol: 'Economía' },
+  ];
+
   // Galeria de evidencia (desactivada por ahora): para reactivarla,
   // descomenta este array, el estado selectedImage, la seccion y el lightbox.
   // const evidencias = [
@@ -170,7 +180,6 @@ function App() {
               {activeDropdown === 'competencias' && (
                 <ul className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[200px] list-none m-0 p-2">
                   <li><a href="#tecnologias" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-tools text-xs"></i> Tecnologías utilizadas</a></li>
-                  <li><a href="#funciones" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-tasks text-xs"></i> Funciones realizadas</a></li>
                   <li><a href="#servicios" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-cogs text-xs"></i> Servicios</a></li>
                 </ul>
               )}
@@ -390,6 +399,27 @@ function App() {
               <h3 className="text-xl text-primary mb-3 font-semibold">Análisis Financiero</h3>
               <p className="text-gray-600 leading-relaxed text-sm">Elaboración de reportes, conciliación de operaciones y análisis de información económica para apoyar la toma de decisiones.</p>
             </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-briefcase text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Gestión Administrativa</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Agendamiento de citas, gestión documental, órdenes de compra y procesamiento de pagos a proveedores.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-1">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-boxes text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Control de Inventario</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Perchado de mercadería, control de stock y gestión de inventario para una óptima administración de recursos.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-2">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-headset text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Atención al Cliente</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Atención presencial y virtual, resolución de consultas, comunicación por WhatsApp y correo, y coordinación con proveedores.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -419,6 +449,33 @@ function App() {
               <i className="fas fa-landmark text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
               <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={2} /></h3>
               <p className="text-primary font-semibold">Prácticas en instituciones públicas</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="recorrido" className="py-12 px-4 md:px-8 fade-in-section">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-center text-sm font-bold tracking-widest uppercase text-accent mb-8 flex items-center justify-center gap-3">
+            <i className="fas fa-route"></i> Empresas · Prácticas · Estudios <i className="fas fa-route"></i>
+          </p>
+          <div className="marquee-mask marquee-pause overflow-hidden">
+            <div className="flex w-max animate-marquee">
+              {[0, 1].map((copy) => (
+                <div key={copy} className="flex gap-6 pr-6" aria-hidden={copy === 1}>
+                  {recorrido.map((item) => (
+                    <div key={`${copy}-${item.nombre}`} className="flex items-center gap-4 bg-white rounded-2xl border-2 border-accent/20 shadow-sm px-5 py-3 shrink-0">
+                      <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-accent/30 shadow-sm shrink-0">
+                        <img src={item.img} alt={item.nombre} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <p className="text-primary font-bold text-sm leading-tight m-0 whitespace-nowrap">{item.nombre}</p>
+                        <p className="text-accent text-xs font-semibold leading-tight m-0 whitespace-nowrap">{item.rol}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -920,46 +977,6 @@ function App() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
-
-      <section id="funciones" className="py-16 px-4 md:px-8 fade-in-section">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-tasks text-accent"></i> Funciones realizadas</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="text-5xl mb-4">💼</div>
-              <h3 className="text-xl text-primary mb-3">Gestión Administrativa</h3>
-              <p className="text-gray-600 leading-relaxed">Agendamiento de citas, gestión documental, órdenes de compra y procesamiento de pagos a proveedores.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="text-5xl mb-4">💰</div>
-              <h3 className="text-xl text-primary mb-3">Control Financiero</h3>
-              <p className="text-gray-600 leading-relaxed">Facturación, arqueo y cuadre de caja, depósitos, liquidaciones y conciliación bancaria de reportes.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="text-5xl mb-4">📦</div>
-              <h3 className="text-xl text-primary mb-3">Control de Inventario</h3>
-              <p className="text-gray-600 leading-relaxed">Perchado de mercadería, control de stock y gestión de inventario para optimización de recursos.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="text-5xl mb-4">🤝</div>
-              <h3 className="text-xl text-primary mb-3">Atención al Cliente</h3>
-              <p className="text-gray-600 leading-relaxed">Atención presencial y virtual, resolución de consultas y soporte integral a clientes.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="text-5xl mb-4">📧</div>
-              <h3 className="text-xl text-primary mb-3">Comunicación</h3>
-              <p className="text-gray-600 leading-relaxed">Gestión de consultas vía WhatsApp y Gmail, coordinación con proveedores y elaboración de informes.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all border-2 border-accent">
-              <div className="text-5xl mb-4">📊</div>
-              <h3 className="text-xl text-primary mb-3">Reportes y Análisis</h3>
-              <p className="text-gray-600 leading-relaxed">Elaboración de informes, análisis de datos y seguimiento de indicadores de desempeño.</p>
-            </div>
           </div>
         </div>
       </section>

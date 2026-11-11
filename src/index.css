@@ -207,3 +207,25 @@ body {
   transform: skewX(-20deg);
   animation: shineSweep 4.5s ease-in-out infinite;
 }
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marqueeScroll 26s linear infinite;
+}
+
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
