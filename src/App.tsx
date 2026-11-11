@@ -151,6 +151,7 @@ function App() {
               {activeDropdown === 'portfolio' && (
                 <ul className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[200px] list-none m-0 p-2">
                   <li><a href="#sobre-mi" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-user text-xs"></i> Sobre Mí</a></li>
+                  <li><a href="#fortalezas" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-star text-xs"></i> Fortalezas</a></li>
                   <li><a href="#experiencia" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-briefcase text-xs"></i> Experiencia</a></li>
                   <li><a href="#negocio" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-store text-xs"></i> Negocio Familiar</a></li>
                   <li><a href="#empresas" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-building text-xs"></i> Empresas</a></li>
@@ -190,6 +191,9 @@ function App() {
               )}
             </li>
           </ul>
+          <a href="https://www.linkedin.com/in/kimberlychiza/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-all hover:-translate-y-0.5 no-underline">
+            <i className="fab fa-linkedin-in text-sm"></i>
+          </a>
         </div>
       </nav>
 
@@ -201,28 +205,84 @@ function App() {
         <div className="max-w-6xl w-full px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-accent tracking-tight drop-shadow-lg">Hola, soy Kimberly Chiza</h1>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium mb-6 text-gray-700 drop-shadow-md">Economista</h2>
+              <div className="inline-flex items-center gap-2.5 bg-white/85 backdrop-blur-sm border border-accent/30 text-accent px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-md shadow-accent/10 mb-5">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
+                </span>
+                Cajera Bancaria · Banco del Pacífico
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-accent tracking-tight drop-shadow-lg">
+                Hola, soy <span className="bg-gradient-to-r from-accent via-accent-light to-accent bg-clip-text text-transparent">Kimberly Chiza</span>
+              </h1>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium mb-6 text-gray-700 drop-shadow-md flex items-center gap-3">
+                <i className="fas fa-chart-line text-accent-light text-xl md:text-2xl"></i> Economista
+              </h2>
               <p className="text-lg md:text-xl mb-4 text-gray-800 leading-relaxed font-semibold drop-shadow-md">
                 Especialista en análisis económico, consultoría financiera y planificación estratégica.
               </p>
-              <p className="text-lg md:text-xl mb-8 text-gray-800 leading-relaxed font-semibold drop-shadow-md">
+              <p className="text-lg md:text-xl mb-6 text-gray-800 leading-relaxed font-semibold drop-shadow-md">
                 Este portafolio presenta mi experiencia profesional en diversas empresas, las funciones que he desempeñado y el dominio de herramientas tecnológicas aplicadas en mi trayectoria laboral.
               </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-accent/20 text-accent px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-sm">
+                  <i className="fas fa-check-circle"></i> Cuadre de caja sin diferencias
+                </span>
+                <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-accent/20 text-accent px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-sm">
+                  <i className="fas fa-users"></i> +80 clientes atendidos al día
+                </span>
+                <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-accent/20 text-accent px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-sm">
+                  <i className="fas fa-university"></i> Operaciones en ventanilla
+                </span>
+              </div>
               <div className="flex gap-4 flex-wrap">
-                <a href="#contacto" className="px-8 md:px-10 py-3 md:py-4 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">Contáctame</a>
-                <a href="#servicios" className="px-8 md:px-10 py-3 md:py-4 rounded-full border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">Mis Servicios</a>
+                <a href="#contacto" className="inline-flex items-center gap-2.5 px-8 md:px-10 py-3 md:py-4 rounded-full bg-gradient-to-r from-accent to-accent-light text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">
+                  <i className="fas fa-paper-plane"></i> Contáctame
+                </a>
+                <a href="https://www.linkedin.com/in/kimberlychiza/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 px-8 md:px-10 py-3 md:py-4 rounded-full bg-[#0a66c2] text-white font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">
+                  <i className="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="#servicios" className="inline-flex items-center gap-2.5 px-8 md:px-10 py-3 md:py-4 rounded-full border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline text-sm md:text-base">
+                  <i className="fas fa-briefcase"></i> Mis Servicios
+                </a>
               </div>
             </div>
             <div className="order-1 md:order-2 flex justify-center">
-              <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full bg-gradient-to-br from-accent to-accent-light p-1.5 shadow-xl shadow-accent/30 animate-glow-pulse">
-                <div className="w-full h-full rounded-full overflow-hidden bg-white">
-                  <img src={meImg} alt="Kimberly Chiza" className="w-full h-full object-cover object-top scale-[1.1] origin-[50%_28%]" />
+              <div className="relative">
+                <div className="w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full bg-gradient-to-br from-accent to-accent-light p-1.5 shadow-xl shadow-accent/30 animate-glow-pulse">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-white">
+                    <img src={meImg} alt="Kimberly Chiza" className="w-full h-full object-cover object-top scale-[1.1] origin-[50%_28%]" />
+                  </div>
+                </div>
+                <div className="absolute -top-3 -right-4 md:-right-10 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-accent/20 px-4 py-2.5 flex items-center gap-3 animate-float">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-md shadow-accent/30 shrink-0">
+                    <i className="fas fa-university text-white text-sm"></i>
+                  </div>
+                  <div>
+                    <p className="text-primary text-xs font-bold leading-tight m-0">Banca</p>
+                    <p className="text-gray-500 text-[10px] leading-tight m-0">Ventanilla</p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-3 -left-4 md:-left-10 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-accent/20 px-4 py-2.5 flex items-center gap-3 animate-float-delayed">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-md shadow-accent/30 shrink-0">
+                    <i className="fas fa-graduation-cap text-white text-sm"></i>
+                  </div>
+                  <div>
+                    <p className="text-primary text-xs font-bold leading-tight m-0">Economista</p>
+                    <p className="text-gray-500 text-[10px] leading-tight m-0">UTEQ</p>
+                  </div>
+                </div>
+                <div className="absolute top-1/2 -left-8 md:-left-14 -translate-y-1/2 hidden sm:flex w-11 h-11 rounded-2xl bg-white/90 backdrop-blur-sm shadow-lg border border-accent/20 items-center justify-center animate-float">
+                  <i className="fas fa-coins text-accent text-lg"></i>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <a href="#sobre-mi" className="absolute bottom-6 left-1/2 -translate-x-1/2 text-accent/70 hover:text-accent transition-colors flex flex-col items-center gap-1 no-underline z-10">
+          <span className="text-[10px] font-bold tracking-widest uppercase">Descubre más</span>
+          <i className="fas fa-chevron-down animate-bounce"></i>
+        </a>
       </section>
 
       <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
@@ -276,6 +336,59 @@ function App() {
                   Gestión Documental
                 </span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
+      <section id="fortalezas" className="py-16 px-4 md:px-8 bg-gradient-to-br from-white to-accent/5 fade-in-section">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-star text-accent"></i> Fortalezas Profesionales</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Las áreas clave que una economista domina en la práctica diaria, aplicadas hoy en operaciones reales de ventanilla bancaria.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-money-bill-wave text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Manejo y Custodia de Efectivo</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Conteo, clasificación y armado de fajos de billetes por denominación, garantizando un flujo de efectivo ágil, ordenado y seguro en ventanilla.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-1">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-balance-scale text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Cuadre y Arqueo de Caja</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Cierre de caja al final de cada jornada con verificación cruzada por parte de un compañero, asegurando precisión y cero diferencias.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-2">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-cash-register text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Operaciones en Ventanilla</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Procesamiento de depósitos, retiros y pagos de tarjetas con papeleta doble, además de cobros de multas, luz y matrículas con papeleta simple.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-3">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-barcode text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Digitalización Documental</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Escaneo de documentos mediante códigos de máquina asignados a cada destino y organización de los soportes que se adjuntan al reporte final del día.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-4">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-clipboard-check text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Formularios y Cumplimiento</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Llenado riguroso de formularios para billetes de alta denominación ($50 y $100) y aplicación de los controles internos del banco.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent/20 hover:border-accent group fade-in-up fade-in-up-delay-5">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-5 shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                <i className="fas fa-chart-line text-white text-2xl"></i>
+              </div>
+              <h3 className="text-xl text-primary mb-3 font-semibold">Análisis Financiero</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">Elaboración de reportes, conciliación de operaciones y análisis de información económica para apoyar la toma de decisiones.</p>
             </div>
           </div>
         </div>
@@ -897,10 +1010,15 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-graduation-cap text-accent"></i> Educación</h2>
           <div className="max-w-2xl mx-auto mb-12">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-accent">
-              <h3 className="text-xl text-primary mb-2 font-semibold">Licenciatura en Economía</h3>
-              <p className="text-accent font-semibold mb-1">Universidad Técnica Estatal de Quevedo</p>
-              <p className="text-gray-500 text-sm">2019 - 2025</p>
+            <div className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-accent flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <div className="w-20 h-20 rounded-2xl overflow-hidden border-2 border-accent/30 shadow-md shadow-accent/20 shrink-0">
+                <img src={uteqImg} alt="Universidad Técnica Estatal de Quevedo" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <h3 className="text-xl text-primary mb-2 font-semibold">Licenciatura en Economía</h3>
+                <p className="text-accent font-semibold mb-1 flex items-center gap-2"><i className="fas fa-university text-xs"></i> Universidad Técnica Estatal de Quevedo</p>
+                <p className="text-gray-500 text-sm flex items-center gap-2"><i className="fas fa-calendar-alt text-xs"></i> 2019 - 2025</p>
+              </div>
             </div>
           </div>
         </div>
@@ -995,7 +1113,7 @@ function App() {
               </div>
             </div>
             <div className="flex gap-4 justify-center">
-              <a href="https://www.linkedin.com/in/kimberlychiza/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-accent font-semibold border-2 border-accent rounded-full hover:bg-accent hover:text-white transition-all no-underline">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/kimberlychiza/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 text-accent font-semibold border-2 border-accent rounded-full hover:bg-accent hover:text-white transition-all no-underline"><i className="fab fa-linkedin-in"></i> LinkedIn</a>
             </div>
           </div>
         </div>

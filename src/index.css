@@ -127,6 +127,23 @@ body {
   animation: glowPulse 2.4s ease-in-out infinite;
 }
 
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatY 4s ease-in-out 1.4s infinite;
+}
+
 @keyframes borderFlow {
   0% {
     background-position: 0% 50%;
