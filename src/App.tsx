@@ -11,6 +11,8 @@ import powerbiImg from './assets/powerbi.png';
 import fullhogarImg from './assets/fullhogar.jpg';
 import hubspotImg from './assets/hubspot.png';
 import certificadoImg from './assets/CERTIFICADO MDT CONTABILIDAD, TRIBUTACIÓN Y LABORAL.pdf';
+import certificadoExcelImg from './assets/certificado_excel.jpg';
+import certificadoSecretariaImg from './assets/certificado_secretaria.jpg';
 import uteqImg from './assets/uteq.png';
 import portadaImg from './assets/portada.jpg';
 import meImg from './assets/me.jpeg';
@@ -1223,6 +1225,46 @@ function App() {
                 <h3 className="text-xl text-primary font-semibold mb-2">MDT Contabilidad, Tributación y Laboral</h3>
                 <p className="text-gray-600 text-sm mb-4">Formación especializada en contabilidad, tributación y legislación laboral aplicada.</p>
                 <a href={certificadoImg} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm font-semibold rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">
+                  <i className="fas fa-external-link-alt text-xs"></i>
+                  Ver Certificado
+                </a>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group border-2 border-accent/20 hover:border-accent">
+              <div className="h-48 overflow-hidden relative">
+                <img src={certificadoExcelImg} alt="Certificado Excel" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">Certificación</span>
+                  <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Completado</span>
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">40 horas</span>
+                </div>
+                <h3 className="text-xl text-primary font-semibold mb-2">Excel Básico, Medio y Avanzado</h3>
+                <p className="text-gray-600 text-sm mb-1"><i className="fas fa-building text-accent/60 text-xs mr-1.5"></i>Coach Group Ecuador</p>
+                <p className="text-gray-500 text-xs mb-4"><i className="fas fa-calendar-alt text-accent/60 mr-1.5"></i>Sep – Oct 2026 · Modalidad online</p>
+                <a href={certificadoExcelImg} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm font-semibold rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">
+                  <i className="fas fa-external-link-alt text-xs"></i>
+                  Ver Certificado
+                </a>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group border-2 border-accent/20 hover:border-accent">
+              <div className="h-48 overflow-hidden relative">
+                <img src={certificadoSecretariaImg} alt="Certificado Secretariado Organizacional" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">Certificación</span>
+                  <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Completado</span>
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">40 horas</span>
+                </div>
+                <h3 className="text-xl text-primary font-semibold mb-2">Secretariado Organizacional</h3>
+                <p className="text-gray-600 text-sm mb-1"><i className="fas fa-building text-accent/60 text-xs mr-1.5"></i>Coach Group Ecuador</p>
+                <p className="text-gray-500 text-xs mb-4"><i className="fas fa-calendar-alt text-accent/60 mr-1.5"></i>Jul – Ago 2026 · Modalidad online</p>
+                <a href={certificadoSecretariaImg} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm font-semibold rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">
                   <i className="fas fa-external-link-alt text-xs"></i>
                   Ver Certificado
                 </a>
