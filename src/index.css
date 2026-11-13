@@ -127,6 +127,19 @@ body {
   animation: glowPulse 2.4s ease-in-out infinite;
 }
 
+@keyframes pulseGrow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-grow {
+  animation: pulseGrow 2.2s ease-in-out infinite;
+}
+
 @keyframes floatY {
   0%, 100% {
     transform: translateY(0);

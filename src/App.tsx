@@ -17,6 +17,7 @@ import uteqImg from './assets/uteq.png';
 import portadaImg from './assets/portada.jpg';
 import meImg from './assets/me.jpeg';
 import bancoPacificoImg from './assets/bancopacifico.jpg';
+import jovenesImg from './assets/jovenes.png';
 
 function AnimatedCounter({ target, prefix = '' }: { target: number; prefix?: string }) {
   const [count, setCount] = useState(0);
@@ -263,6 +264,7 @@ function App() {
                   <li><a href="#sobre-mi" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-user text-xs"></i> Sobre Mí</a></li>
                   <li><a href="#fortalezas" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-star text-xs"></i> Fortalezas</a></li>
                   <li><a href="#experiencia" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-briefcase text-xs"></i> Experiencia</a></li>
+                  <li><a href="#jovenes" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-users text-xs"></i> Jóvenes en Acción</a></li>
                   <li><a href="#negocio" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-store text-xs"></i> Negocio Familiar</a></li>
                   <li><a href="#empresas" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-building text-xs"></i> Empresas</a></li>
                   {/* <li><a href="#galeria" className="text-gray-700 text-sm hover:bg-gray-100 hover:text-accent transition-colors no-underline block px-4 py-2 rounded flex items-center gap-2" onClick={() => setActiveDropdown(null)}><i className="fas fa-images text-xs"></i> Galería</a></li> */}
@@ -881,6 +883,51 @@ function App() {
 
       <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
 
+      <section id="jovenes" className="py-16 px-4 md:px-8 bg-gradient-to-br from-sky-50 to-accent/10 fade-in-section">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-users text-accent"></i> Jóvenes en Acción</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Participé en el programa Jóvenes en Acción, una iniciativa que impulsa la inserción laboral y la formación de jóvenes en instituciones públicas del país.</p>
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden border-2 border-accent/20 hover:border-accent hover:shadow-xl hover:-translate-y-2 transition-all group">
+              <div className="h-56 md:h-64 overflow-hidden relative">
+                <img src={jovenesImg} alt="Jóvenes en Acción" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+              <div className="p-6 md:p-8">
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <span className="inline-block bg-gradient-to-r from-accent-light to-accent text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">Programa gubernamental</span>
+                  <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Participante</span>
+                </div>
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-lg shadow-accent/40 shrink-0 group-hover:scale-110 transition-transform">
+                    <i className="fas fa-landmark text-white text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 className="text-xl text-primary mb-1 font-bold">Ministerio Económico y Productivo</h3>
+                    <p className="text-accent font-semibold text-sm flex items-center gap-2">
+                      <i className="fas fa-users text-xs"></i>
+                      Participante del programa Jóvenes en Acción
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-3">Formé parte del programa Jóvenes en Acción, colaborando en el Ministerio Económico y Productivo, donde fortalecí mis competencias administrativas y mi compromiso con el servicio público.</p>
+                <div className="mt-4 flex items-center gap-3 bg-accent/5 border border-accent/10 rounded-xl px-4 py-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-light to-accent flex items-center justify-center shrink-0 shadow-md">
+                    <i className="fas fa-laptop text-white text-sm"></i>
+                  </div>
+                  <div>
+                    <p className="text-primary text-sm font-bold">Curso virtual "Sembrando Igualdad"</p>
+                    <p className="text-gray-500 text-xs">Proyecto FARM – Jóvenes en Acción</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent max-w-4xl mx-auto my-4"></div>
+
       <section id="negocio" className="py-16 px-4 md:px-8 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-4 text-primary flex items-center justify-center gap-3"><i className="fas fa-store text-accent"></i> Negocio Familiar</h2>
@@ -1306,6 +1353,15 @@ function App() {
           <p className="m-0">&copy; 2026 Kimberly Chiza. Todos los derechos reservados.</p>
         </div>
       </footer>
+
+      <a
+        href="#jovenes"
+        className="fixed bottom-6 left-6 z-50 block w-36 h-24 rounded-xl overflow-hidden shadow-lg shadow-accent/40 border-2 border-white animate-pulse-grow hover:shadow-xl transition-shadow"
+        aria-label="Ir a la sección Jóvenes en Acción"
+        title="Jóvenes en Acción"
+      >
+        <img src={jovenesImg} alt="Jóvenes en Acción" className="w-full h-full object-cover" />
+      </a>
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
