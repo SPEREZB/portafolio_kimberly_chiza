@@ -13,6 +13,7 @@ import hubspotImg from './assets/hubspot.png';
 import certificadoImg from './assets/CERTIFICADO MDT CONTABILIDAD, TRIBUTACIÓN Y LABORAL.pdf';
 import certificadoExcelImg from './assets/certificado_excel.jpg';
 import certificadoSecretariaImg from './assets/certificado_secretaria.jpg';
+import certificadoSealImg from './assets/CERTIFICADO_SEAL.pdf';
 import uteqImg from './assets/uteq.png';
 import portadaImg from './assets/portada.jpg';
 import meImg from './assets/me.jpeg';
@@ -554,7 +555,7 @@ function App() {
       <section id="trayectoria" className="py-16 px-4 md:px-8 bg-gray-50 fade-in-section">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-12 text-primary flex items-center justify-center gap-3"><i className="fas fa-chart-line text-accent"></i> Mi Trayectoria</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
             <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up">
               <i className="fas fa-briefcase text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
               <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={2} prefix="+" /></h3>
@@ -574,6 +575,11 @@ function App() {
               <i className="fas fa-landmark text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
               <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={2} /></h3>
               <p className="text-primary font-semibold">Prácticas en instituciones públicas</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all border-2 border-accent text-center group fade-in-up fade-in-up-delay-4">
+              <i className="fas fa-certificate text-4xl text-accent mb-4 group-hover:scale-110 transition-transform"></i>
+              <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent"><AnimatedCounter target={4} /></h3>
+              <p className="text-primary font-semibold">Certificados obtenidos</p>
             </div>
           </div>
         </div>
@@ -1265,6 +1271,28 @@ function App() {
                 <p className="text-gray-600 text-sm mb-1"><i className="fas fa-building text-accent/60 text-xs mr-1.5"></i>Coach Group Ecuador</p>
                 <p className="text-gray-500 text-xs mb-4"><i className="fas fa-calendar-alt text-accent/60 mr-1.5"></i>Jul – Ago 2026 · Modalidad online</p>
                 <a href={certificadoSecretariaImg} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm font-semibold rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">
+                  <i className="fas fa-external-link-alt text-xs"></i>
+                  Ver Certificado
+                </a>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all group border-2 border-accent/20 hover:border-accent">
+              <div className="h-32 bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-white/10"></div>
+                <i className="fas fa-seedling text-6xl text-white relative z-10"></i>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-white/20 rounded-full"></div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-white/20 rounded-full"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">Certificación</span>
+                  <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">Completado</span>
+                  <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">20 horas</span>
+                </div>
+                <h3 className="text-xl text-primary font-semibold mb-2">Curso Virtual "Sembrando Igualdad"</h3>
+                <p className="text-gray-600 text-sm mb-1"><i className="fas fa-building text-accent/60 text-xs mr-1.5"></i>Proyecto FARM – Jóvenes en Acción</p>
+                <p className="text-gray-500 text-xs mb-4"><i className="fas fa-calendar-alt text-accent/60 mr-1.5"></i>Nov – Dic 2026 · Ministerio de Desarrollo Económico y Productivo</p>
+                <a href={certificadoSealImg} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-accent to-accent-light text-white text-sm font-semibold rounded-full hover:shadow-lg hover:-translate-y-0.5 transition-all no-underline">
                   <i className="fas fa-external-link-alt text-xs"></i>
                   Ver Certificado
                 </a>
